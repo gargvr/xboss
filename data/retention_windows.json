@@ -1,0 +1,355 @@
+{
+  "meta": {
+    "commit": "c65aa17",
+    "commit_date": "2026-08-14",
+    "upstream": "https://github.com/xai-org/x-algorithm",
+    "param_rs_last_sync": "2026-08-12T04:09:22Z",
+    "extracted_at": "2026-08-17T16:24:05Z"
+  },
+  "windows": [
+    {
+      "index": "Main",
+      "name": "post_creation",
+      "retention_hours": 24,
+      "window_name": "post_creation_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 142
+    },
+    {
+      "index": "Main",
+      "name": "1fav",
+      "retention_hours": 24,
+      "window_name": "1fav_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 143
+    },
+    {
+      "index": "Main",
+      "name": "1fav",
+      "retention_hours": 48,
+      "window_name": "1fav_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 144
+    },
+    {
+      "index": "Main",
+      "name": "32fav",
+      "retention_hours": 24,
+      "window_name": "32fav_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 145
+    },
+    {
+      "index": "Main",
+      "name": "video",
+      "retention_hours": 48,
+      "window_name": "video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 146
+    },
+    {
+      "index": "Main",
+      "name": "video",
+      "retention_hours": 96,
+      "window_name": "video_4day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 147
+    },
+    {
+      "index": "Main",
+      "name": "video",
+      "retention_hours": 168,
+      "window_name": "video_7day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 148
+    },
+    {
+      "index": "Main",
+      "name": "video",
+      "retention_hours": 336,
+      "window_name": "video_14day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 149
+    },
+    {
+      "index": "Main",
+      "name": "video",
+      "retention_hours": 720,
+      "window_name": "video_30day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 150
+    },
+    {
+      "index": "Main",
+      "name": "nsfw_video",
+      "retention_hours": 48,
+      "window_name": "nsfw_video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 151
+    },
+    {
+      "index": "Main",
+      "name": "nsfw_video",
+      "retention_hours": 168,
+      "window_name": "nsfw_video_7day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 152
+    },
+    {
+      "index": "Main",
+      "name": "evergreen_video",
+      "retention_hours": 43800,
+      "window_name": "evergreen_video_1825day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 153
+    },
+    {
+      "index": "Main",
+      "name": "evergreen_nsfw_video",
+      "retention_hours": 43800,
+      "window_name": "evergreen_nsfw_video_1825day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 154
+    },
+    {
+      "index": "Main",
+      "name": "evergreen_video_grok",
+      "retention_hours": 720,
+      "window_name": "evergreen_video_grok_30day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 155
+    },
+    {
+      "index": "Topic",
+      "name": "1fav",
+      "retention_hours": 24,
+      "window_name": "1fav_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 158
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 159
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic_option_1",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_option_1_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 160
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic_option_2",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_option_2_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 161
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic_option_3",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_option_3_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 162
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic_option_4",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_option_4_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 163
+    },
+    {
+      "index": "Topic",
+      "name": "1fav_topic_option_5",
+      "retention_hours": 24,
+      "window_name": "1fav_topic_option_5_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 164
+    },
+    {
+      "index": "Metadata",
+      "name": "metadata",
+      "retention_hours": 24,
+      "window_name": "metadata_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 167
+    },
+    {
+      "index": "Metadata",
+      "name": "metadata",
+      "retention_hours": 48,
+      "window_name": "metadata_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 168
+    },
+    {
+      "index": "Metadata",
+      "name": "metadata",
+      "retention_hours": 72,
+      "window_name": "metadata_3day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 169
+    },
+    {
+      "index": "MmMetadata",
+      "name": "mm_emb_metadata",
+      "retention_hours": 24,
+      "window_name": "mm_emb_metadata_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 172
+    },
+    {
+      "index": "MmMetadata",
+      "name": "mm_emb_metadata_video",
+      "retention_hours": 48,
+      "window_name": "mm_emb_metadata_video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 173
+    },
+    {
+      "index": "MmMetadata",
+      "name": "mm_emb_metadata_video",
+      "retention_hours": 96,
+      "window_name": "mm_emb_metadata_video_4day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 174
+    },
+    {
+      "index": "Sid",
+      "name": "1fav",
+      "retention_hours": 24,
+      "window_name": "1fav_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 177
+    },
+    {
+      "index": "Sid",
+      "name": "video",
+      "retention_hours": 48,
+      "window_name": "video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 178
+    },
+    {
+      "index": "Sid",
+      "name": "video",
+      "retention_hours": 96,
+      "window_name": "video_4day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 179
+    },
+    {
+      "index": "Sid",
+      "name": "video",
+      "retention_hours": 336,
+      "window_name": "video_14day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 180
+    },
+    {
+      "index": "Sid",
+      "name": "nsfw_video",
+      "retention_hours": 48,
+      "window_name": "nsfw_video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 181
+    },
+    {
+      "index": "Sid",
+      "name": "nsfw_video",
+      "retention_hours": 168,
+      "window_name": "nsfw_video_7day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 182
+    },
+    {
+      "index": "Sid",
+      "name": "nsfw_video",
+      "retention_hours": 336,
+      "window_name": "nsfw_video_14day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 183
+    },
+    {
+      "index": "Sid",
+      "name": "evergreen_video",
+      "retention_hours": 43800,
+      "window_name": "evergreen_video_1825day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 184
+    },
+    {
+      "index": "Sid",
+      "name": "imagine",
+      "retention_hours": 96,
+      "window_name": "imagine_4day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 185
+    },
+    {
+      "index": "Sid",
+      "name": "evergreen_video_grok",
+      "retention_hours": 720,
+      "window_name": "evergreen_video_grok_30day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 186
+    },
+    {
+      "index": "SidTail",
+      "name": "tail",
+      "retention_hours": 24,
+      "window_name": "tail_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 188
+    },
+    {
+      "index": "Ads",
+      "name": "1fav",
+      "retention_hours": 24,
+      "window_name": "1fav_1day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 235
+    },
+    {
+      "index": "Ads",
+      "name": "video",
+      "retention_hours": 48,
+      "window_name": "video_2day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 236
+    },
+    {
+      "index": "Ads",
+      "name": "video",
+      "retention_hours": 168,
+      "window_name": "video_7day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 237
+    },
+    {
+      "index": "Ads",
+      "name": "evergreen_video",
+      "retention_hours": 43800,
+      "window_name": "evergreen_video_1825day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 239
+    },
+    {
+      "index": "Ads",
+      "name": "evergreen_video_grok",
+      "retention_hours": 720,
+      "window_name": "evergreen_video_grok_30day",
+      "file": "phoenix-rankall/src/config/mod.rs",
+      "line": 243
+    }
+  ]
+}

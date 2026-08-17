@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For You Field Manual</title>
+<meta name="description" content="What X's open-sourced For You ranking code says makes a post travel, with an interactive score simulator. Part of xboss.">
+<style>*,*::before,*::after{box-sizing:border-box}html,body{margin:0}</style>
+</head>
+<body>
+<style>
+:root{
+  --bg:#EEF0F4; --surface:#FFFFFF; --surface-2:#F6F7FA; --ink:#12161D; --muted:#5A6370; --rule:#D3D8E0;
+  --accent:#8A5A00; --accent-fill:rgba(245,197,66,.28); --accent-strong:#F5C542;
+  --pos:#15803D; --pos-fill:rgba(21,128,61,.14); --neg:#B91C1C; --neg-fill:rgba(185,28,28,.12);
+  --code-bg:#1A1F27; --code-ink:#E7EAEF;
+  --display:"Avenir Next Condensed","Avenir Next","Futura","Gill Sans","Segoe UI",system-ui,sans-serif;
+  --body:"Charter","Iowan Old Style","Palatino Linotype","Book Antiqua",Georgia,serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1217; --surface:#171B22; --surface-2:#1D222B; --ink:#E7EAEF; --muted:#98A2B3; --rule:#2A303A;
+    --accent:#F5C542; --accent-fill:rgba(245,197,66,.16); --accent-strong:#F5C542;
+    --pos:#4ADE80; --pos-fill:rgba(74,222,128,.14); --neg:#FB7185; --neg-fill:rgba(251,113,133,.14);
+    --code-bg:#0B0E12; --code-ink:#DDE2EA;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1217; --surface:#171B22; --surface-2:#1D222B; --ink:#E7EAEF; --muted:#98A2B3; --rule:#2A303A;
+  --accent:#F5C542; --accent-fill:rgba(245,197,66,.16); --accent-strong:#F5C542;
+  --pos:#4ADE80; --pos-fill:rgba(74,222,128,.14); --neg:#FB7185; --neg-fill:rgba(251,113,133,.14);
+  --code-bg:#0B0E12; --code-ink:#DDE2EA;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent-strong);outline-offset:2px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px 80px}
+header.masthead{padding:44px 0 28px;border-bottom:1px solid var(--rule)}
+.eyebrow{font-family:var(--display);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,6vw,64px);line-height:.98;letter-spacing:-.01em;margin:8px 0 14px;text-wrap:balance}
+h1 .hl{background:linear-gradient(transparent 55%,var(--accent-fill) 55%);padding:0 .06em}
+.lede{font-size:19px;max-width:66ch;color:var(--ink);margin:0 0 10px}
+.meta{font-family:var(--mono);font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}
+.meta code{font-family:var(--mono);background:var(--surface-2);border:1px solid var(--rule);border-radius:4px;padding:1px 6px}
+.layout{display:grid;grid-template-columns:1fr;gap:32px;margin-top:28px}
+@media (min-width:1000px){.layout{grid-template-columns:210px minmax(0,1fr);gap:48px}}
+nav.rail{display:none}
+@media (min-width:1000px){
+  nav.rail{display:block;position:sticky;top:20px;align-self:start;font-family:var(--display);font-size:13.5px;line-height:1.35}
+  nav.rail ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule)}
+  nav.rail li a{display:block;padding:7px 0 7px 12px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;margin-left:-2px;letter-spacing:.02em}
+  nav.rail li a:hover{color:var(--ink)}
+  nav.rail li a.on{color:var(--ink);border-left-color:var(--accent-strong)}
+  nav.rail .railhead{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+}
+main{min-width:0}
+section.part{padding:36px 0 8px;border-bottom:1px solid var(--rule)}
+section.part:last-of-type{border-bottom:0}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.4vw,38px);line-height:1.05;letter-spacing:-.005em;margin:6px 0 16px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:21px;line-height:1.2;margin:28px 0 10px;text-wrap:balance}
+h4{font-family:var(--display);font-weight:700;font-size:16px;letter-spacing:.02em;margin:20px 0 8px}
+p{max-width:68ch;margin:0 0 14px}
+ul,ol{max-width:68ch;padding-left:1.25em;margin:0 0 14px}
+li{margin:0 0 7px}
+li>ul{margin-top:6px}
+strong{font-weight:700}
+.muted{color:var(--muted)}
+.small{font-size:14.5px}
+code,kbd{font-family:var(--mono);font-size:.86em;background:var(--surface-2);border:1px solid var(--rule);border-radius:4px;padding:1px 5px}
+pre{font-family:var(--mono);font-size:13.5px;line-height:1.5;background:var(--code-bg);color:var(--code-ink);border-radius:8px;padding:14px 16px;overflow-x:auto;margin:14px 0 18px}
+pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.file{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.file,code,kbd,.meta span,td{overflow-wrap:anywhere}
+.lede,h1,h2,h3{overflow-wrap:break-word}
+.callout{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:16px 18px;margin:16px 0 20px;max-width:none}
+.callout.warn{border-color:var(--accent-strong);background:var(--accent-fill)}
+.callout p:last-child{margin-bottom:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:14px 0 20px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.card .k{font-family:var(--display);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.card .v{font-family:var(--display);font-weight:800;font-size:30px;line-height:1.05;margin:4px 0 6px;font-variant-numeric:tabular-nums}
+.card .d{font-size:14px;color:var(--ink);line-height:1.4}
+.tablewrap{overflow-x:auto;margin:12px 0 22px;border:1px solid var(--rule);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--display);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:700;background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num.pos{color:var(--pos);font-weight:700}
+td.num.neg{color:var(--neg);font-weight:700}
+.bar{height:6px;border-radius:3px;background:var(--pos);display:inline-block;vertical-align:middle;margin-left:8px}
+.bar.neg{background:var(--neg)}
+.pill{display:inline-block;font-family:var(--display);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:2px 8px;border-radius:999px;border:1px solid var(--rule);color:var(--muted);vertical-align:middle}
+.pill.pos{color:var(--pos);border-color:var(--pos);background:var(--pos-fill)}
+.pill.neg{color:var(--neg);border-color:var(--neg);background:var(--neg-fill)}
+.pill.acc{color:var(--accent);border-color:var(--accent-strong);background:var(--accent-fill)}
+.formula{font-family:var(--mono);font-size:15px;background:var(--surface);border:1px solid var(--rule);border-left:4px solid var(--accent-strong);border-radius:8px;padding:12px 16px;margin:14px 0 18px;overflow-x:auto}
+/* simulator */
+.sim{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:18px 18px 8px;margin:18px 0 26px}
+.sim h3{margin-top:0}
+.sim .top{display:grid;grid-template-columns:1fr;gap:16px}
+@media (min-width:820px){.sim .top{grid-template-columns:minmax(0,1fr) 300px}}
+.score{background:var(--surface-2);border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+.score .big{font-family:var(--display);font-weight:800;font-size:44px;line-height:1;font-variant-numeric:tabular-nums;margin:2px 0}
+.score .sub{font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.score .row{display:flex;justify-content:space-between;font-family:var(--mono);font-size:13px;padding:5px 0;border-top:1px dashed var(--rule)}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.presets button,.toggles label{font-family:var(--display);font-size:13px;letter-spacing:.03em;font-weight:700;border:1px solid var(--rule);background:var(--surface-2);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer}
+.presets button.on{border-color:var(--accent-strong);background:var(--accent-fill)}
+.toggles{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.toggles label{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.sliders{display:grid;grid-template-columns:1fr;gap:6px 18px}
+@media (min-width:640px){.sliders{grid-template-columns:1fr 1fr}}
+.sl{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:6px 0;border-bottom:1px dashed var(--rule)}
+.sl .lab{font-family:var(--display);font-size:13.5px;font-weight:700;letter-spacing:.01em}
+.sl .lab small{font-family:var(--mono);font-weight:400;color:var(--muted);font-size:11.5px;margin-left:6px}
+.sl .val{font-family:var(--mono);font-size:12.5px;color:var(--muted);text-align:right;min-width:9ch;font-variant-numeric:tabular-nums}
+.sl input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent);margin:0}
+.sl.neg .lab{color:var(--neg)}
+.contrib{margin:14px 0 6px}
+.contrib .c{display:grid;grid-template-columns:150px 1fr 70px;gap:10px;align-items:center;font-family:var(--mono);font-size:12.5px;padding:3px 0}
+.contrib .c .n{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contrib .c .b{height:10px;border-radius:3px;background:var(--pos);min-width:0}
+.contrib .c .b.neg{background:var(--neg)}
+.contrib .c .v{text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:13.5px;color:var(--muted);margin:10px 0 0}
+/* checklist */
+.check li{list-style:none;position:relative;padding-left:26px}
+.check li::before{content:"";position:absolute;left:0;top:.42em;width:14px;height:14px;border:2px solid var(--accent-strong);border-radius:3px}
+.do li::before{border-color:var(--pos)}
+.dont li::before{border-color:var(--neg);border-radius:50%}
+.plan{border-left:3px solid var(--accent-strong);padding-left:16px;margin:12px 0 22px}
+.plan h4{margin-top:14px}
+details{border:1px solid var(--rule);border-radius:8px;background:var(--surface);padding:0 14px;margin:0 0 10px}
+summary{cursor:pointer;font-family:var(--display);font-weight:700;padding:10px 0;font-size:15.5px}
+details[open] summary{border-bottom:1px solid var(--rule);margin-bottom:8px}
+footer{margin-top:40px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px}
+.two{display:grid;grid-template-columns:1fr;gap:0 28px}
+@media (min-width:820px){.two{grid-template-columns:1fr 1fr}}
+.tmpl{background:var(--surface-2);border:1px solid var(--rule);border-radius:8px;padding:12px 14px;font-size:15px;margin:8px 0 14px;white-space:pre-wrap;font-family:var(--body)}
+.tmpl .lbl{font-family:var(--display);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
+</style>
+
+<div class="wrap">
+<header class="masthead">
+  <div class="eyebrow">xai-org/x-algorithm · release of 14 Aug 2026 · read from source</div>
+  <h1>For You <span class="hl">Field Manual</span></h1>
+  <p class="lede">What X's own ranking code says makes a post travel, and an operating plan for one account built on it. Every mechanism below is tied to a file in the repo; the "why" is not folklore.</p>
+  <div class="meta">
+    <span>repo <code>github.com/xai-org/x-algorithm</code></span>
+    <span>commit <code>c65aa17</code></span>
+    <span>weights synced <code>2026-08-12</code></span>
+    <span>part of <a href="https://github.com/gargvr/xboss">X Boss (github.com/gargvr/xboss)</a> · weights auto-synced in <code>data/weights.json</code></span>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="rail" aria-label="Sections">
+  <p class="railhead">Contents</p>
+  <ol>
+    <li><a href="#tldr">The short version</a></li>
+    <li><a href="#score">How a post is scored</a></li>
+    <li><a href="#sim">Score simulator</a></li>
+    <li><a href="#after">After the score</a></li>
+    <li><a href="#reach">Reaching non-followers</a></li>
+    <li><a href="#suppress">What suppresses you</a></li>
+    <li><a href="#myths">Myths vs. the code</a></li>
+    <li><a href="#plan">Your operating plan</a></li>
+    <li><a href="#refs">File references</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<!-- ============ TLDR ============ -->
+<section class="part" id="tldr">
+  <div class="eyebrow">Part 1</div>
+  <h2>The short version</h2>
+  <p>The For You feed is rebuilt per request. Your post is scored per viewer as a weighted sum of <em>that viewer's predicted probability</em> of taking each action on it. Then a handful of multipliers and filters decide whether it lands on screen. Nothing in the code counts followers as a score input, and nothing counts likes as such; what wins is being the post a particular person is predicted to reply to, quote, share, or follow because of.</p>
+  <div class="grid" id="tldr-cards">
+    <div class="card"><div class="k">Biggest positive weight</div><div class="v">20.0</div><div class="d">"Share via copy link". A like is 0.5. Write things people forward.</div></div>
+    <div class="card"><div class="k">Reply weight, mutual follows</div><div class="v">5 → 20</div><div class="d">+15 on your originals for viewers who follow you and whom you follow back.</div></div>
+    <div class="card"><div class="k">Retrieval door</div><div class="v">24 h</div><div class="d">Original + clean + ≥1 like gets you into the out-of-network index; evicted at 24h regardless.</div></div>
+    <div class="card"><div class="k">Small-account lift</div><div class="v">slot 15</div><div class="d">One original per request from an author ≤1,000 followers with &lt;1,000 views is raised to the 15th score.</div></div>
+    <div class="card"><div class="k">Out-of-network factor</div><div class="v">0.75×</div><div class="d">Also applied to your replies and reposts, even for your own followers.</div></div>
+    <div class="card"><div class="k">Your 2nd post, same pool</div><div class="v">0.625×</div><div class="d">3rd 0.44×, floor 0.25×. Spacing beats volume.</div></div>
+    <div class="card"><div class="k">Thread posts that can travel</div><div class="v">1</div><div class="d">Replies and reposts from non-followed accounts are removed before scoring.</div></div>
+    <div class="card"><div class="k">Follower count, like count, verified</div><div class="v">0</div><div class="d">None of them are inputs to the ranking model in the shipped config.</div></div>
+  </div>
+</section>
+
+<!-- ============ SCORE ============ -->
+<section class="part" id="score">
+  <div class="eyebrow">Part 2 · Scoring</div>
+  <h2>How a post is scored</h2>
+  <p>Phoenix (a transformer) reads the viewer's recent action history and outputs, for each candidate post, a probability for each action. <code>RankingScorer</code> turns those into one number:</p>
+  <div class="formula">score = Σ weight<sub>i</sub> × P<sub>viewer</sub>(action<sub>i</sub> | post) &nbsp;&nbsp;<span class="muted">// home-mixer/scorers/ranking_scorer.rs:451</span></div>
+  <p>The weights below are the production defaults mirrored into <span class="file">home-mixer/params/param.rs</span> (last sync 2026-08-12). Read them as <strong>multipliers on a probability</strong>, not as exchange rates between counts: a report is weighted 468× a like because reports are more than 1000× rarer than likes, so a tiny predicted probability still needs a big weight to matter at all. X added that comment to the code this week because people kept reading it the other way.</p>
+
+  <h3>Positive heads</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Predicted action</th><th>Weight</th><th>Notes from the code</th></tr></thead>
+    <tbody>
+      <tr><td>Share via copy link</td><td class="num pos">20.0<span class="bar" style="width:100px"></span></td><td>Highest positive weight in the file. "Someone will copy the link" is the strongest single positive signal.</td></tr>
+      <tr><td>Reply</td><td class="num pos">5.0<span class="bar" style="width:25px"></span></td><td><strong>+15.0 boost → 20.0</strong> when author and viewer follow each other <em>and</em> the post is an original (not a reply, not a repost). <span class="file">ranking_scorer.rs:180-193</span></td></tr>
+      <tr><td>Quote</td><td class="num pos">5.0<span class="bar" style="width:25px"></span></td><td>Same weight as a reply.</td></tr>
+      <tr><td>Share via DM</td><td class="num pos">5.0<span class="bar" style="width:25px"></span></td><td>Private sends count a lot.</td></tr>
+      <tr><td>Follow author</td><td class="num pos">4.0<span class="bar" style="width:20px"></span></td><td>P(viewer follows you because of this post). Big for small accounts: this is how discovery converts.</td></tr>
+      <tr><td>Share (share sheet)</td><td class="num pos">2.0<span class="bar" style="width:10px"></span></td><td>Generic share action.</td></tr>
+      <tr><td>Repost</td><td class="num pos">1.0<span class="bar" style="width:5px"></span></td><td>2× a like.</td></tr>
+      <tr><td>Like</td><td class="num pos">0.5<span class="bar" style="width:3px"></span></td><td>The baseline everyone optimizes for is the smallest explicit-engagement weight.</td></tr>
+      <tr><td>Click (open post)</td><td class="num pos">0.4</td><td>Post detail click.</td></tr>
+      <tr><td>Open link</td><td class="num pos">0.2</td><td>Positive, not negative. Links are not penalized in this scorer.</td></tr>
+      <tr><td>Video quality view</td><td class="num pos">0.05</td><td>Only counts if the video is longer than 10 s <em>and the viewer has under 10,000 followers</em>. <span class="file">util/candidates_util.rs:19-39</span></td></tr>
+      <tr><td>Photo expand · Video open · Quoted click</td><td class="num pos">0.05 each</td><td>Passive taps barely move the score.</td></tr>
+      <tr><td>Dwell time (continuous)</td><td class="num pos">0.004 / s</td><td>Predicted seconds × 0.004. 30 s of predicted dwell ≈ 0.12, i.e. about a quarter of a like. Binary "dwell" head is 0.0.</td></tr>
+      <tr><td>Post unexplored</td><td class="num pos">0.02</td><td>In-network only (<code>PostUnexploredWeightInNetworkOnly = true</code>). Small novelty nudge for posts you haven't explored.</td></tr>
+      <tr><td>Profile click</td><td class="num">0.0</td><td>Zero. Profile visits don't score.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Negative heads</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Predicted action</th><th>Weight</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Report</td><td class="num neg">−234.0<span class="bar neg" style="width:117px"></span></td><td>P(this viewer reports the post). Personalized: reports from one crowd mainly lower predictions for similar viewers.</td></tr>
+      <tr><td>Mute author</td><td class="num neg">−58.8<span class="bar neg" style="width:29px"></span></td><td>Bigger than block. Being annoying is costlier than being offensive.</td></tr>
+      <tr><td>Not interested</td><td class="num neg">−43.2<span class="bar neg" style="width:22px"></span></td><td>The "Not interested in this post" menu action.</td></tr>
+      <tr><td>Block author</td><td class="num neg">−31.2<span class="bar neg" style="width:16px"></span></td><td></td></tr>
+      <tr><td>Not dwelled</td><td class="num neg">−0.02</td><td>Scroll-past. Tiny, but it is the one negative that fires constantly.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="callout">
+    <p><strong>What happens when the sum goes negative.</strong> A net-negative post is squashed to a hair above zero: <code>(score + 367.22) / 410.54 × 0.001</code>, while any net-positive post gets <code>score + 0.001</code>. So a post that a viewer is predicted to mute or report is not "ranked lower"; it is placed beneath every positive post in the pool. <span class="file">ranking_scorer.rs:554-562</span>, constants in <span class="file">params/config.rs</span>.</p>
+  </div>
+</section>
+
+<!-- ============ SIMULATOR ============ -->
+<section class="part" id="sim">
+  <div class="eyebrow">Part 3 · Interactive</div>
+  <h2>Score simulator</h2>
+  <p>This runs the exact arithmetic of <code>compute_weighted_parts</code>, <code>offset_score</code>, the author-diversity multiplier, and the out-of-network discount from <span class="file">ranking_scorer.rs</span>, with the production weights. The sliders are <em>one viewer's predicted probabilities</em>, which is what the model outputs; the starting values are illustrative, not measured base rates. Use it to feel which levers matter, not to predict impressions.</p>
+  <div class="sim">
+    <div class="presets" id="presets">
+      <button data-p="generic" class="on">Generic take</button>
+      <button data-p="discussion">Discussion starter</button>
+      <button data-p="resource">Save-worthy resource</button>
+      <button data-p="video">Video &gt; 10 s</button>
+      <button data-p="ragebait">Rage bait</button>
+    </div>
+    <div class="toggles">
+      <label><input type="checkbox" id="t-mutual"> Viewer and author follow each other</label>
+      <label><input type="checkbox" id="t-oon"> Viewer does not follow author (out-of-network)</label>
+      <label><input type="checkbox" id="t-replyrt"> This is a reply or repost</label>
+      <label><input type="checkbox" id="t-video"> Video longer than 10 s</label>
+      <label><input type="checkbox" id="t-bigviewer"> Viewer has ≥ 10k followers</label>
+      <label>k-th post by this author in the pool <input type="number" id="t-k" min="0" max="10" value="0" style="width:52px;font-family:var(--mono)"></label>
+    </div>
+    <div class="top">
+      <div class="sliders" id="sliders"></div>
+      <div class="score">
+        <div class="sub">final score for this viewer</div>
+        <div class="big" id="s-final">0.000</div>
+        <div class="row"><span>weighted sum</span><span id="s-weighted">0</span></div>
+        <div class="row"><span>positive part</span><span id="s-pos">0</span></div>
+        <div class="row"><span>negative part</span><span id="s-neg">0</span></div>
+        <div class="row"><span>author diversity ×</span><span id="s-div">1.000</span></div>
+        <div class="row"><span>OON / reply-repost ×</span><span id="s-oon">1.000</span></div>
+        <div class="row"><span>like-equivalents</span><span id="s-likes">0</span></div>
+        <p class="note" id="s-note"></p>
+      </div>
+    </div>
+    <div class="contrib" id="contrib"></div>
+    <p class="note">"Like-equivalents" = final score ÷ 0.5, i.e. how many predicted-certain likes this post is worth to this viewer. Cold-start lift and DPP reranking (Part 4) are not simulated here.</p>
+  </div>
+</section>
+
+<!-- ============ AFTER ============ -->
+<section class="part" id="after">
+  <div class="eyebrow">Part 4 · After scoring</div>
+  <h2>After the score: multipliers, boosts, and the cut</h2>
+  <p>Once every candidate has a weighted score, four things happen in <code>RankingScorer::score</code> and the selectors, in this order: a one-post cold-start lift, an author-diversity decay, an out-of-network multiplier, and a top-K cut. Then a separate service reorders the top of the list for variety.</p>
+
+  <h3>1. Cold-start lift: one small-account post per request gets a free ride to slot ~15</h3>
+  <p>Every For You request picks <strong>exactly one</strong> eligible post and raises its score to whatever the 15th/16th-ranked post scored (random slot in <code>[15, 16)</code>, so slot 15). Eligibility, all required (<span class="file">scorers/author_cold_start.rs:138-143, 273-284</span>, params in <span class="file">params/param.rs:646-682</span>):</p>
+  <ul>
+    <li>author has <strong>≤ 1,000 followers</strong> (<code>ColdStartFollowerCap</code>)</li>
+    <li>the post is an <strong>original</strong>: not a reply, not a repost</li>
+    <li>the post has <strong>&lt; 1,000 impressions</strong> so far (<code>ColdStartImpressionThreshold</code>, read from the live view count)</li>
+    <li>the post is already ranked inside the top 85% of the non-zero pool (<code>LowImpressionsMaxPositionRatio 0.85</code>), i.e. it can't be junk</li>
+    <li>in the treatment arm, the post is <strong>under 24 hours</strong> old (<code>ColdStartMaxPostAgeSecs 86400</code>)</li>
+  </ul>
+  <p>Among the eligible, the <em>highest-scoring</em> one wins (Thompson sampling is coded but off). Practical reading: while you're under 1k followers, each fresh original post competes for one guaranteed mid-feed slot per viewer request, but only against other small-account posts in that viewer's pool, and only if the model already likes it for that viewer. That's your best structural break; it disappears at 1,001 followers.</p>
+
+  <h3>2. Author diversity: your second post in the same pool is worth 62.5%</h3>
+  <p>Within one ranked pool, the k-th post from the same author is multiplied by <code>(1 − 0.25) × 0.5<sup>k</sup> + 0.25</code> (<span class="file">ranking_scorer.rs:643-645</span>; <code>AuthorDiversityDecay 0.5</code>, <code>AuthorDiversityFloor 0.25</code>):</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Post from you in this pool</th><th>Multiplier</th></tr></thead>
+    <tbody>
+      <tr><td>1st</td><td class="num">1.000</td></tr>
+      <tr><td>2nd</td><td class="num">0.625</td></tr>
+      <tr><td>3rd</td><td class="num">0.438</td></tr>
+      <tr><td>4th</td><td class="num">0.344</td></tr>
+      <tr><td>5th and beyond</td><td class="num">→ 0.25 floor</td></tr>
+    </tbody>
+  </table></div>
+  <p>Posting a lot doesn't get you punished, but it doesn't stack either: per viewer session, roughly one of your posts gets full weight and the rest fight at a discount. Spread posts out so different sessions see different "first" posts, and make each one able to stand alone.</p>
+
+  <h3>3. Out-of-network discount: 0.75×, and it also hits your replies and reposts</h3>
+  <p>Posts from authors the viewer doesn't follow are multiplied by <code>OonWeightFactor = 0.75</code>. The same 0.75 is applied to <strong>replies and reposts from accounts the viewer does follow</strong> (<code>EnableOonRescoreForInNetworkRepliesRetweets = true</code>, <span class="file">ranking_scorer.rs:773-783</span>). Topic-filtered feeds use 0.5. So an original post is the only format that ever gets the full 1.0 to your own followers; a repost or reply is discounted before it even competes.</p>
+
+  <h3>4. The cut: 50 survive, 35 are shown</h3>
+  <p><code>TopKScoreSelector</code> keeps the top 50 by final score (<code>TOP_K_CANDIDATES_TO_SELECT = 50</code>), the response holds 35 posts plus 4 module slots (<code>RESULT_SIZE = 35</code>, <span class="file">params/config.rs</span>). Candidates older than <strong>48 hours</strong> never enter the pool (<code>MAX_POST_AGE = 48 * 60 * 60</code>, <code>AgeFilter</code>). Who-to-Follow sits at position 6, prompts at 0, the feed survey at 12 when enabled.</p>
+  <h3>5. The DPP reranker: near-duplicate takes get dropped</h3>
+  <p><code>VMRanker</code> sends the top 150 to a separate service that runs a determinantal point process over each post's <em>content embedding</em> (the same multimodal embedding behind semantic IDs), with <code>theta = 0.65</code> (<span class="file">vm-ranker/scoring/dpp_model.rs</span>, <span class="file">vm-ranker/dpp.rs:87-122</span>). It greedily picks up to 50 posts, preferring high score and low similarity to what it already picked; survivors keep their score, everyone else is zeroed. Rough numbers from the formula: a top-scored post that is 0.9-cosine-similar to an already-picked post is beaten by any distinct post scoring ≥ 11% of the top score. If several posts in a viewer's pool say the same thing (same news, same meme, same clip), about one survives.</p>
+
+  <h3>6. Threads, reposts, and "one slot per conversation"</h3>
+  <ul>
+    <li><strong>Only post 1 of a thread can reach non-followers.</strong> Out-of-network replies and reposts are removed before scoring (<code>OONRetweetReplyFilter</code>, <span class="file">filters/oon_retweet_reply_filter.rs:13-18</span>). Quote posts are treated as originals and survive.</li>
+    <li>For your followers, parts 2..n are replies: they get the 0.75× factor, no mutual-follow reply boost, no cold-start lift, and <code>DedupConversationFilter</code> keeps <strong>one item per conversation per page</strong> (the highest scored), rendered as root + at most one intermediate + the focal post (<span class="file">filters/dedup_conversation_filter.rs:42-49</span>, <span class="file">util/urt/convo_marshaller.rs</span>). A thread never spreads across a page.</li>
+    <li><strong>Reposts by others are how you cross into new follower graphs.</strong> A repost is in-network for the <em>reposter's</em> followers, so it enters their pool as a followed-account item (at 0.75×). Multiple reposts of the same post collapse to one per viewer (<code>RetweetDeduplicationFilter</code>), and age is judged on the repost's own ID, so a fresh repost re-enters the 48h window.</li>
+    <li>A post gets one shot per viewer: seen and served IDs (post, its original, and its parent) are excluded; "served" persists 10 min / 100 IDs (<span class="file">filters/previously_seen_posts_filter.rs</span>, <span class="file">filters/previously_served_posts_filter.rs</span>). Posts ranked 36-100 are cached for 3 minutes and typically show on the viewer's next page.</li>
+  </ul>
+
+  <h3>7. Ads and brand safety decide placement, not survival</h3>
+  <p>The default ads blender (<code>partition_organic_low_risk</code>) never places a "MediumRisk" post next to an ad and never lets one take position 0. MediumRisk means: any NSFW / gore / do-not-amplify / malicious-URL label, <em>or simply not yet scored for brand safety by Grok</em> (<span class="file">models/brand_safety.rs:40-63</span>). Clean, already-scored posts are the ones eligible for the top slot; each ad also pushes one organic post off the 35-item page.</p>
+
+  <div class="callout">
+    <p><strong>Following tab is not ranked.</strong> "Following" is reverse-chronological with only dedup and safety filters (<span class="file">candidate_pipeline/reverse_chron_posts_pipeline.rs</span>); "Ranked Following" runs the same scorer over followed accounts only. Everything in this manual is about For You.</p>
+  </div>
+</section>
+
+<!-- ============ REACH ============ -->
+<section class="part" id="reach">
+  <div class="eyebrow">Part 5 · Retrieval</div>
+  <h2>Reaching people who don't follow you</h2>
+  <p>Out-of-network posts come from two sources queried in parallel: <strong>Phoenix retrieval</strong> (a two-tower model over an index of recent posts, up to 1,000 candidates per request) and <strong>SimClusters</strong> (engagement-cluster similarity, up to 800). Both are then scored by the same model as your followers' posts, then multiplied by 0.75. Getting into those two pools is the whole game for reach.</p>
+
+  <h3>The Phoenix index has a door, and it closes at 24 hours</h3>
+  <p>The production For You retrieval index is called <code>1fav_1day</code> ("HOME"). A post is admitted only if all of the following hold (<span class="file">phoenix-rankall-strato/…/phoenixRankAllCandidateProcessor.strato:381-487</span>, retention in <span class="file">phoenix-rankall/src/config/mod.rs:139-191</span>):</p>
+  <ul class="check">
+    <li>it is an <strong>original post</strong>: replies, reposts, and community posts are skipped outright</li>
+    <li>it passes visibility filtering evaluated <em>with no viewer</em> at the "home recommendations" safety level, and is not NSFW-annotated (so any spam / NSFW / malicious-URL / do-not-amplify label on you or the post keeps it out entirely)</li>
+    <li>it has received <strong>at least one like</strong> (the like event is processed ~2 minutes after it happens; further re-indexing fires at power-of-two like counts: 2, 4, 8, 16, 32…)</li>
+    <li>it is <strong>less than 24 hours old</strong>, measured from creation, and it is evicted at 24h no matter how well it is doing</li>
+  </ul>
+  <p>Ranking's own hard cap is 48 hours (<code>AgeFilter</code>). So the effective life of a post for discovery is one day, with the first hours mattering most because the model also sees post age in 60-minute buckets as an input.</p>
+
+  <h3>What the model actually knows about your post</h3>
+  <p>The shipped production ranking config (<code>home_direct_packed</code>) builds each candidate token from: hashed post ID, hashed author ID, product surface, post-age bucket, the viewer's timezone and local hour, and <strong>semantic IDs</strong> (<span class="file">phoenix/xrex/models/recsys_feature_prep.py:516-724</span>). Semantic IDs are quantized codes of a multimodal embedding of the post produced by a Qwen3-VL embedding model that is fed: author display name and handle, the post text with <code>t.co</code> links stripped, images, video frames, link-card title and description, poll choices, and quoted-post text/images (<span class="file">phoenix/reference/mm_encoder.py</span>).</p>
+  <div class="grid">
+    <div class="card"><div class="k">The model sees</div><div class="d">Content meaning (via semantic IDs) · who you are (author hash) · how old the post is · the viewer's last ~1,022 actions with dwell times · viewer country, language, geo, apps, age bracket</div></div>
+    <div class="card"><div class="k">The model does not see</div><div class="d">Raw text · like/repost/reply counts (<code>enable_engagement_counts = False</code>) · your follower count · verified / Premium status · post language · a "has link" or "has media" flag · bookmarks (no ranking weight)</div></div>
+  </div>
+  <p>Two consequences. First, engagement counts are not a ranking input; they gate index admission (≥1 like) and the cold-start lift (&lt;1,000 views), that's all. "Social proof" works on humans, not on Phoenix. Second, since content enters as meaning, the post has to be legibly <em>about</em> something: clear topic, clear stance, and if you attach a link, the card's title/description is what gets embedded, not the URL.</p>
+
+  <h3>Retrieval matches your identity + content against the viewer's history</h3>
+  <p>The retrieval two-tower represents each indexed post as <strong>hashed author ID + semantic IDs only</strong> (<span class="file">phoenix/xrex/models/recsys_two_tower_model.py:1141-1172</span>), trained with likes as positives and reports / not-interested / block / mute / unfollow as hard negatives. A brand-new author's hash row is untrained, so retrieval leans entirely on content; an established author's posts inherit "who likes this author". Being consistently about one thing is how the author hash becomes a useful signal.</p>
+
+  <h3>SimClusters: the second door, and it only counts likes</h3>
+  <p>SimClusters seeds from the viewer's own recent engagements (up to 15 each of likes, reposts, replies, bookmarks, shares, own posts, plus photo expands and quality video views) and finds posts whose engagement-cluster vector is similar (cosine &gt; 0.5, posts up to 48h old, <span class="file">home-mixer/sources/simclusters_source.rs:24-35</span>). How your post gets a cluster vector at all (<span class="file">simclusters/…/summingbird/storm/TweetJob.scala</span>, <span class="file">Configs.scala</span>):</p>
+  <ul>
+    <li>Only <strong>likes</strong> build it (<code>ServerTweetFav</code>); replies, quotes, reposts, bookmarks and views do nothing here. Self-likes are excluded.</li>
+    <li>Each like adds the liker's own cluster interests, but only clusters where that liker's interest score is ≥ 0.3. So a like from someone deeply inside "AI builders" moves you into that cluster; a like from a random account with no clear interests adds nothing.</li>
+    <li>The cluster score <strong>halves every 8 hours</strong> without new likes; likes on posts older than 3 days are ignored; you must sit in the cluster's served top 200 to be retrievable.</li>
+    <li>A post needs <strong>≥ 8 likes</strong> before it gets a persistent embedding and can act as a seed for other viewers.</li>
+    <li>Authors flagged for adult content are dropped from this source for non-followers.</li>
+  </ul>
+  <p>Practical reading: <em>who</em> likes your post in the first hours matters more than how many. Ten likes from people who are clearly inside your lane put you in front of the rest of that lane; a hundred likes from a giveaway crowd put you nowhere in particular.</p>
+
+  <h3>Reputation (user-cred-v2) is a shield, not a booster</h3>
+  <p>The PageRank score in <span class="file">user-cred-v2/</span> is not read by home-mixer, Phoenix, SimClusters, or Thunder at all. It's consumed by the spam and enforcement systems: a score ≥ 54 (<span class="file">botmaker-rules/scarecrow/derived-feature/IsHighPageRankUser.df</span>) or ≥ 50 (<span class="file">abuse-enforcement-service/…/enforcement_post.yaml</span>) exempts you from most <em>automatic</em> spam / NSFW / low-quality-URL labels and enforcement. Mass flows to you from being followed by high-mass accounts that follow few others, and from likes and reposts by high-mass accounts within rolling 7-day windows; Premium/verified accounts get a uniform share of the teleport probability; linked alt accounts are edge-stripped and do nothing. Follower count is not an input (only a &gt;25,000-follower fallback when unscored). Build it slowly, by being liked by people who matter in your lane.</p>
+</section>
+
+<!-- ============ SUPPRESS ============ -->
+<section class="part" id="suppress">
+  <div class="eyebrow">Part 6 · Visibility</div>
+  <h2>What suppresses you</h2>
+  <p>Ranking decides order. <strong>Visibility filtering</strong> decides whether a post can be shown at all, and it is a readable list of rules over labels (<span class="file">visibility-filtering/rules/registry.rs</span>). The rules run in order; the first Drop ends evaluation. One set applies to everyone; a second, stricter set applies only when the post is a <em>recommendation from an account the viewer doesn't follow</em>. That second set is where "my followers see it but nobody else does" comes from. And because you are exempt from your own labels when viewing your own posts, you can't see it happening from your account.</p>
+
+  <h3>Rules that apply to everyone (selected)</h3>
+  <ul>
+    <li><strong>Protected account → zero reach beyond followers</strong> (<code>ProtectedAuthorDropRule</code>).</li>
+    <li>Tweet label <code>SPAM</code> (a link to a "BAD"-verdict URL) → dropped for <em>everyone including followers</em>. Policy labels (hateful conduct, violent speech, abuse, civic integrity, PDNA, bounce) likewise.</li>
+    <li>Edited posts: only the latest version is eligible (<code>DropStaleTweetsRule</code>). Withheld-by-country and DMCA'd media drop for affected viewers.</li>
+    <li>Sensitive-media posts (NSFW / gore labels, or your own "sensitive" flag) are dropped for logged-out viewers, under-18 viewers, and viewers with no stated age in 16 countries; shown behind an interstitial to followers who haven't opted in.</li>
+  </ul>
+
+  <h3>Rules that apply only to non-follower recommendations</h3>
+  <p>These are the ones that quietly cap reach. Post labels: <code>SPAM_HIGH_RECALL</code>, <code>MALICIOUS_URL</code>, <code>DO_NOT_AMPLIFY</code>, <code>NSFW_HIGH_RECALL</code>, <code>NSFW_HIGH_PRECISION</code> (even for opted-in viewers), <code>NSFW_TEXT</code>, <code>NSFW_CARD_IMAGE</code>, <code>GORE_AND_VIOLENCE_HIGH_PRECISION</code>, <code>FOSNR_ABUSE_INSULTS</code>. Account labels that hide <em>all</em> your posts from non-followers: <code>SpamHighRecall</code>, any <code>Nsfw*</code> account label, <code>NsfwAvatarImage</code>, <code>NsfwBannerImage</code>, <code>Compromised</code>, <code>ReadOnly</code>, <code>ImpersonationHighPrecision</code>, <code>AbusiveHighRecall</code>, <code>DoNotAmplify</code>; plus the account-level "mark media as sensitive" setting.</p>
+  <div class="callout warn">
+    <p><strong>Two mechanics people don't expect.</strong> (1) The out-of-network retrieval index applies these rules with <em>no viewer</em> (i.e. as logged-out), so any sensitive-media or spam-labeled post never enters the index in the first place. (2) When you reply under or quote a post, its ancestors and the quoted post are evaluated with the stricter policy, and if any of them is dropped, <em>your</em> post is dropped too, even for your own followers (<code>AncillaryVFFilter</code>, <span class="file">home-mixer/candidate_hydrators/vf_candidate_hydrator.rs:139-178</span>). Don't build on labeled accounts.</p>
+  </div>
+
+  <h3>How ordinary creators actually get labeled</h3>
+  <p>Labels come from rule engines and models that mostly watch behaviour and links, not opinions. The parts of the rules that are in the repo (<span class="file">botmaker-rules/scarecrow/</span>, <span class="file">grox/</span>, <span class="file">abuse-enforcement-service/</span>, <span class="file">agatha/</span>, <span class="file">bdsm/</span>), ordered by how likely they are to bite you:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Behaviour</th><th>Label</th><th>Consequence</th><th>Where</th></tr></thead>
+    <tbody>
+      <tr><td>Post a link whose redirect chain touches a <code>LOW_QUALITY</code> domain</td><td>post <code>SPAM_HIGH_RECALL</code></td><td>hidden from non-followers</td><td class="file">LQ_Tweets_With_LQ_URL_Verdict…_v2.bot</td></tr>
+      <tr><td>Link with a <code>BAD</code> verdict / <code>UNSAFE</code> verdict</td><td><code>SPAM</code> / <code>MALICIOUS_URL</code></td><td>dropped for everyone / for non-followers; applied retroactively to old posts when a domain's verdict changes</td><td class="file">Tweet_Spam_High_Recall_RTF_All_Bad_URL_Sources.bot, rtf_tweets_on_unsafe_verdict.bot</td></tr>
+      <tr><td><strong>Pinned</strong> post contains a BAD or LOW_QUALITY link</td><td>account <code>SpamHighRecall</code>, 1 week</td><td><strong>all</strong> your posts hidden from non-followers; re-checked every time you follow someone</td><td class="file">PinnedLowQualityOrBadUrl.bot</td></tr>
+      <tr><td>Link post that @mentions someone who doesn't follow you</td><td>post <code>SPAM_HIGH_RECALL</code></td><td>hidden from non-followers</td><td class="file">LQ_Tweets_…_At_Mention_To_NonFollower.bot</td></tr>
+      <tr><td>Engagement bait or engagement farming (LLM-classified)</td><td>post <code>SpamHighRecall</code></td><td>hidden from non-followers, <em>even for high-reputation accounts</em></td><td class="file">grox/flows/ptos/…result_sink.py:233-247</td></tr>
+      <tr><td>≥2 @mentions in a post</td><td>(no label by itself)</td><td>triggers the real-time spam LLM pass on that post</td><td class="file">grox/flows/ptos/task_filter.py:38</td></tr>
+      <tr><td>Reply under an account with &gt;30k followers that an LLM scores as zero-value; LLM slop; gibberish; fast reply spam</td><td><code>RiskyHighVizReply</code> / post <code>SpamHighRecall</code></td><td>reply de-emphasized / hidden from non-followers, 30 days</td><td class="file">grox/flows/reply_spam/, enforcement_post.yaml:39-69</td></tr>
+      <tr><td>Near-identical text posted repeatedly (incl. copy-paste replies)</td><td><code>COPYPASTA_SPAM</code>; at volume, account <code>SpamHighRecall</code> 30 d</td><td>other surfaces; account label hides you from non-followers</td><td class="file">BBQDuplicateTextProd.bot, enforcement_user.yaml</td></tr>
+      <tr><td>Insulting a named target (English)</td><td><code>FOSNR_ABUSE_INSULTS</code></td><td>hidden from non-followers</td><td class="file">…result_sink.py:257-267</td></tr>
+      <tr><td>3+ borderline-adult media posts in a day, or 3 of your last 5 posts</td><td>account <code>NSFW_HIGH_PRECISION</code>/<code>_RECALL</code>, 7 days</td><td>all posts hidden from non-followers, out of SimClusters and the retrieval index</td><td class="file">NsfwTweetMediaProcessor.bot, postToUserLabelRules.strato:395-426</td></tr>
+      <tr><td>Link card image that scores NSFW</td><td><code>NSFW_CARD_IMAGE</code> on every post with that URL</td><td>interstitial + hidden from non-followers</td><td class="file">NSFW_Card_Image_URL_to_Tweet_Verdict.bot</td></tr>
+      <tr><td>Avatar or banner that scores NSFW</td><td><code>NsfwAvatarImage</code> / <code>NsfwBannerImage</code></td><td>all posts hidden from non-followers</td><td class="file">user_label_drops.rs:89-100</td></tr>
+      <tr><td>Automation-like behaviour: actions &lt;1 s apart, follow/unfollow or like/unlike cycles, engaging with posts never rendered on screen</td><td>BDSM scores → challenge, <code>SpamHighRecall</code>, or suspension</td><td>thresholds redacted</td><td class="file">bdsm/, enforcement_user.yaml</td></tr>
+      <tr><td>Blocks / reports from strangers, relative to likes from strangers</td><td>agatha ratio labels; input to the media NSFW model</td><td>notification filtering, search; guilt-by-graph</td><td class="file">agatha/…/RateBasedLabels.scala:44-56</td></tr>
+    </tbody>
+  </table></div>
+  <p>Exemptions worth knowing: a user-cred score ≥ 54 (or ≥ 50 in enforcement) skips most automatic labels; government (gray) verification is exempt in many rules; a blue check exempts nothing. Not in the repo: what makes a URL BAD / LOW_QUALITY / UNSAFE, the Grox prompts, BDSM thresholds, the duplicate-text SQL, and "some botmaker rules".</p>
+
+  <h3>Under the Hood: check, don't guess</h3>
+  <p><a href="https://x.com/i/under_the_hood">x.com/i/under_the_hood</a> shows the labels applied to your account and posts for the prior calendar month, per label, if your account is ≥ 365 days old and had ≥ 10 original posts that month (report available ~10 days after month end; <span class="file">under-the-hood/strato/columns/underTheHoodReport.User.strato:15-19</span>). It surfaces exactly the FY-relevant labels above (post: <code>SPAM_HIGH_RECALL</code>, <code>SPAM</code>, <code>MALICIOUS_URL</code>, <code>DO_NOT_AMPLIFY</code>, the NSFW/gore set, FOSNR; account: <code>SpamHighRecall</code>, the <code>Nsfw*</code> set, <code>Compromised</code>, <code>ReadOnly</code>, <code>ImpersonationHighPrecision</code>, <code>AbusiveHighRecall</code>, <code>DoNotAmplify</code>). Non-zero rows point at specific posts and links; a clean report plus low reach means the cause is ranking, not filtering.</p>
+</section>
+
+<!-- ============ MYTHS ============ -->
+<section class="part" id="myths">
+  <div class="eyebrow">Part 7</div>
+  <h2>Myths vs. the code</h2>
+  <p>The claims going around this week, checked against the repo. "Not in the repo" means a full-tree search found nothing; the withheld pieces (Grox prompts, some botmaker rules) are the only place such a thing could hide.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Claim</th><th>Verdict</th><th>What the code says</th></tr></thead>
+    <tbody>
+      <tr><td>"One report cancels 468 likes"</td><td><span class="pill neg">Wrong</span></td><td>Weights multiply each viewer's <em>predicted probability</em>, not counts. X added the comment at <span class="file">param.rs:279-307</span> to say exactly this. Reports are &gt;1000× rarer than likes; the −234 exists so the prediction can matter at all, and it's personalized.</td></tr>
+      <tr><td>"Replies are worth 27× likes"</td><td><span class="pill acc">Stale</span></td><td>That was the January weight (13.5). Now: reply 5.0 vs like 0.5 = 10×; 40× (20.0) only on your originals for viewers who follow you back. <span class="file">param.rs:308-315</span></td></tr>
+      <tr><td>"External links get a 30-50% reach penalty"</td><td><span class="pill neg">Not in the repo</span></td><td>No filter or weight penalizes a URL. <code>OpenLinkWeight = 0.2</code> is positive; <span class="file">home-mixer/util/url.rs</span> is a percent-encoder. What exists is URL <em>reputation</em>: bad / low-quality URL verdicts trigger spam labels, and a <code>MALICIOUS_URL</code> label drops the post for non-followers. Also, t.co links are stripped before the content embedding, so a bare link adds no meaning; the card title/description does.</td></tr>
+      <tr><td>"Premium / verified gets a ranking boost"</td><td><span class="pill acc">No explicit term</span></td><td>No verified/premium term in the scorer or in the shipped Phoenix candidate features. Two indirect paths: Premium accounts get a uniform share of user-cred's teleport (reputation shield), and one Grox embedding renderer writes verification tier and follower tier into the text it embeds, so any effect is learned and unquantified, not a multiplier.</td></tr>
+      <tr><td>"The algorithm rewards early engagement velocity"</td><td><span class="pill acc">Half true</span></td><td>No velocity feature; the model doesn't see engagement counts at all. But the mechanics make early hours decisive: the retrieval index needs ≥1 like and evicts at 24h, SimClusters cluster score halves every 8h, and post age is a model input in 60-min buckets.</td></tr>
+      <tr><td>"Reply to big accounts to get in front of their followers"</td><td><span class="pill neg">Not via For You</span></td><td>Your reply is out-of-network for their followers and <code>OONRetweetReplyFilter</code> removes it before scoring. It reaches your own followers as a conversation module (root + your reply, 0.75×). Replies-under-a-post ranking is a different surface, not in this repo. The reverse works: their reply on your original travels to <em>their</em> followers.</td></tr>
+      <tr><td>"Threads are the reach format"</td><td><span class="pill neg">Wrong for reach</span></td><td>Only post 1 can leave your follower graph; the rest are replies (filtered OON, 0.75× in-network, one conversation slot per page). Threads are a depth format for followers.</td></tr>
+      <tr><td>"Follower count matters"</td><td><span class="pill acc">Only as a gate</span></td><td>Not a score input. It gates the cold-start lift (≤1,000 followers helps you) and defines the small <code>post_unexplored</code> label (views &lt; 3% of followers). Reach comes from predicted actions, not audience size.</td></tr>
+      <tr><td>"Bookmarks and profile visits are strong signals"</td><td><span class="pill neg">Zero weight</span></td><td><code>ProfileClickWeight = 0.0</code>; bookmark has no head weight in ranking. Bookmarks do count as a viewer's engagement signal for seeding SimClusters retrieval, and profile clicks do nothing.</td></tr>
+      <tr><td>"Post 10+ times a day"</td><td><span class="pill acc">Diminishing</span></td><td>Your 2nd post in a viewer's pool is ×0.625, 3rd ×0.4375, floor 0.25. Only one small-account post per request gets the cold-start lift. Spacing beats volume.</td></tr>
+      <tr><td>"Video is boosted"</td><td><span class="pill acc">Barely, in For You</span></td><td><code>VqvWeight = 0.05</code>, only for &gt;10 s videos and viewers under 10k followers. Video mostly wins through dwell and forwardability, not a format multiplier. Separate immersive video indices exist but the default For You retrieval embeds the HOME index only.</td></tr>
+      <tr><td>"Language mismatch gets you deboosted"</td><td><span class="pill acc">No rule</span></td><td>Only the viewer's language is a model feature; post language is not, and there's no language filter. Write in the language of the audience whose histories you want to be matched against.</td></tr>
+      <tr><td>"Long posts get dwell boost"</td><td><span class="pill acc">Small</span></td><td>Dwell time weight is 0.004 per predicted second, capped near 30 s ≈ 0.12, a quarter of a like; the binary dwell head is 0. Length helps only if it's read; the model sees meaning, not word count.</td></tr>
+      <tr><td>"Shadowbanned"</td><td><span class="pill acc">Check, don't guess</span></td><td>Visibility filtering is label-driven and readable (Part 6), and X now shows you your labels at <a href="https://x.com/i/under_the_hood">x.com/i/under_the_hood</a>. If you have no labels, you are not filtered; you are being out-predicted.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="part" id="plan">
+  <div class="eyebrow">Part 8 · Operating plan</div>
+  <h2>Your operating plan</h2>
+  <p>Everything above reduces to one sentence: <strong>publish original posts that a specific kind of person is predicted to reply to, quote, forward, or follow because of, keep every one of them clean and legibly on one topic, and get the first like and the first real replies from people inside your lane within the first hours.</strong> Below is how to run that, in order of leverage. The examples assume a builder-in-public / AI-tools lane; the mechanics don't change with the lane, only the examples. To get this plan tailored to your own account, use the xboss skill: it reads your posts and writes the diagnosis and the drafts for you.</p>
+
+  <h3>1. Pick one lane and stay in it for 90 days</h3>
+  <p>Retrieval represents your post as <em>author hash + content codes</em>. A scattered account has an author hash that predicts nothing, so it lives on content alone; a consistent account accumulates "the people who like this author like this kind of thing" and gets pulled into the right histories. Concretely: 80% of originals inside the lane (building AI tools, what the code of X/Claude/etc. actually does, shipping in public), 20% adjacent. Write the bio to match, pin the best lane post.</p>
+
+  <h3>2. Design each original for one high-weight action</h3>
+  <ul>
+    <li><strong>Forward-worthy (copy link 20, DM 5, share 2):</strong> reference posts. "The 9 constants in X's ranking file that matter." "Every filter that removes a post from For You, in order." Checklists, decoded configs, before/after numbers, a tool people can open. These are what people send to a group chat.</li>
+    <li><strong>Reply-worthy (5, or 20 from mutuals):</strong> a specific claim plus a specific question. "The 0.75 out-of-network factor also hits your reposts to your own followers. Did anyone expect that?" Ask something a reader can answer in one line.</li>
+    <li><strong>Quote-worthy (5):</strong> a template or a strong take people want to attach their own version to. "Reply-to-like ratio on your last 10 posts, go." Quotes are originals, so they travel and they count for the quoter's audience.</li>
+    <li><strong>Follow-worthy (4):</strong> visible series and shipped things. "Day 3 of reading X's ranking code." "Shipped: the simulator." The follow head is P(viewer follows you because of this post); a post that promises a next one lifts it.</li>
+    <li><strong>Dwell (0.004/s):</strong> small but real: 30 s of predicted dwell ≈ a quarter of a like. Long, dense posts that reward reading also lower <em>not-dwelled</em>. Never pad; the model sees meaning, not length.</li>
+  </ul>
+
+  <h3>3. Build the mutual-follow reply graph, deliberately</h3>
+  <p>The +15 reply boost applies only when the viewer follows you <em>and you follow them back</em>, on your originals. Rules: follow back every account that replies substantively; each day, leave 5-10 real replies on originals from people in your lane (their followers see the conversation module: root + your reply, at 0.75×; and it makes you a mutual over time); keep a private list of 20-30 mutuals who actually reply and reciprocate on their posts. This is the legitimate version of an "engagement pod": mutuals with genuinely high P(reply).</p>
+
+  <h3>4. The first three hours, every original</h3>
+  <ol>
+    <li>Post at a time when your lane's audience is active for you: for an India + Europe + US-tech mix, roughly 6-8pm IST or 8-10am ET; the model sees the viewer's local hour as context, so it's about who is awake, not a "best time" penalty.</li>
+    <li>Make sure the first like lands within minutes; that opens the retrieval door for the next ~24h. This is the one place a friend's like actually matters structurally.</li>
+    <li>DM the post to 3-5 mutuals for whom it is genuinely relevant. A reply from an account with a real following carries your post as a conversation module into <em>their</em> followers' feeds (in-network for them). A quote is better still: it's an original for their audience.</li>
+    <li>Reply to every substantive reply, then stop. Your own replies under your post are worth nothing beyond your followers.</li>
+    <li>Do <strong>not</strong> repost or reply-bump the post yourself; a self-repost is deduped against the original and gets 0.75×; your replies collapse into one conversation slot anyway.</li>
+  </ol>
+
+  <h3>5. Cadence and spacing</h3>
+  <ul>
+    <li><strong>Under 1,000 followers:</strong> 2 originals per day, spaced ≥ 4 hours apart at times your lane is awake, so there is always a fresh &lt;24h original with &lt;1,000 views competing for the cold-start slot, without your posts competing against each other in the same session (author diversity: 2nd post ×0.625). Every original gets the first-like protocol; skip a slot rather than post something without a payload.</li>
+    <li><strong>Over 1,000:</strong> 1-2 originals per day is enough; quality of the predicted actions dominates. Reposts and replies are for community, not reach.</li>
+    <li>Threads only when the depth is genuinely for followers; put the payload in post 1. Prefer a standalone follow-up original the next day (it re-enters the 24h window; a quote of your own earlier post keeps the context and is still an original).</li>
+    <li>Same news as everyone else: only with a distinct angle (the DPP will pick one version per pool).</li>
+  </ul>
+
+  <h3>6. Keep the account clean (this is most of "shadowban")</h3>
+  <p>Ranking decides order; visibility filtering decides existence, and it runs on labels produced by rule engines and models that mostly watch links and behaviour, not opinions (Part 6). The checklist, in order of how likely each is to bite you:</p>
+  <ul class="check dont">
+    <li>Only link to reputable domains you'd put your name on; never shorteners or affiliate redirect chains (a <code>LOW_QUALITY</code> hop hides the post from non-followers; a <code>BAD</code> verdict drops it for everyone, retroactively).</li>
+    <li>Never pin a post with a link unless the domain is unimpeachable (a pinned bad link hides your <em>whole account</em> from non-followers for a week).</li>
+    <li>Don't @mention people who don't follow you in a post that has a link; keep mentions under two per post.</li>
+    <li>No engagement bait ("like if…", "RT to…", "comment YES"): the LLM classifier labels it <code>SpamHighRecall</code> regardless of reputation.</li>
+    <li>Don't reply under or quote accounts that look labeled (spammy, adult, mass-reported): their drop becomes your drop, even for your followers.</li>
+    <li>No copy-paste replies, no reposting the same text, no LLM slop at volume.</li>
+    <li>No rage bait or targeted insults: <code>FOSNR_ABUSE_INSULTS</code> hides the post from non-followers, and predicted mute (−58.8) / not-interested (−43.2) quietly sink the score with everyone else.</li>
+    <li>Nothing borderline-adult in media, avatar, banner, or link-card image; don't turn on "mark media as sensitive".</li>
+    <li>Don't automate: no bursts of actions under a second apart, no follow/unfollow or like/unlike cycles, no engaging with posts you never opened.</li>
+    <li>Don't go protected; don't rely on editing (only the latest version is eligible).</li>
+  </ul>
+  <p>Check <a href="https://x.com/i/under_the_hood">x.com/i/under_the_hood</a> monthly for labels on your account and posts.</p>
+
+  <h3>7. Measure what the code rewards</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Watch</th><th>Why (code)</th><th>Target</th></tr></thead>
+    <tbody>
+      <tr><td>Replies + quotes per 1,000 impressions</td><td>Reply 5/20 and quote 5 are the levers you control with copy</td><td>Rising week over week; ≥ 5 per 1k on lane posts</td></tr>
+      <tr><td>Shares (analytics "shares") per 1,000</td><td>copy-link 20 / DM 5 / share 2</td><td>Any post above your median gets a sequel</td></tr>
+      <tr><td>New follows per 1,000 impressions</td><td>follow_author 4; also grows the mutual graph</td><td>≥ 2 per 1k on lane posts</td></tr>
+      <tr><td>Views in the first hour vs. follower count</td><td>Without Premium you can't see the non-follower split; your usual view count is roughly your follower graph, so &gt;2× followers within an hour means the post entered the index or SimClusters</td><td>&gt; 2× followers by hour 1 on series posts; rising over the week</td></tr>
+      <tr><td>Time-to-first-like</td><td>Retrieval door (≥1 like, &lt;24h)</td><td>&lt; 10 minutes, every original</td></tr>
+      <tr><td>Under the Hood labels</td><td>Visibility filtering inputs</td><td>Only for accounts ≥ 365 days old with ≥ 10 original posts in the month; until then, the "what suppresses you" checklist is the audit</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>8. Thirty days</h3>
+  <div class="plan">
+    <h4>Days 1-7 · the algorithm series</h4>
+    <p>One original per day from the templates above, each ending in a specific question, plus 5-10 real replies daily on lane originals. Follow back every substantive replier. Publish the simulator link once, on Day 4, after making the artifact public from its share menu.</p>
+    <h4>Days 8-14 · turn the audience into a lane</h4>
+    <p>Shift to your own building: what you shipped, what a config or codebase actually does, decoded. Keep the "I read the source" format; it is your differentiator against the take-merchants and it embeds distinctly. Two originals a day if under 1k followers.</p>
+    <h4>Days 15-30 · compound</h4>
+    <p>Sequel every post that beat your median on shares or replies. Quote your own best originals with new data instead of threading. Keep the mutual list to 30 people who reply. Review Under the Hood at day 30.</p>
+  </div>
+</section>
+
+<!-- ============ REFS ============ -->
+<section class="part" id="refs">
+  <div class="eyebrow">Appendix</div>
+  <h2>File references</h2>
+  <p>Paths are relative to the repo root (<code>~/Documents/claudeCode/x-algorithm</code>, commit <code>c65aa17</code>). Start with the first three; they are the whole scoring story.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>What</th><th>File</th></tr></thead>
+    <tbody>
+      <tr><td>All production weights and switches (synced 2026-08-12)</td><td class="file">home-mixer/params/param.rs</td></tr>
+      <tr><td>Weighted sum, negative squash, author diversity, OON factor</td><td class="file">home-mixer/scorers/ranking_scorer.rs</td></tr>
+      <tr><td>Cold-start lift for ≤1,000-follower authors</td><td class="file">home-mixer/scorers/author_cold_start.rs</td></tr>
+      <tr><td>Constants: 48h max age, top-50, 35 per page, WTF position 6</td><td class="file">home-mixer/params/config.rs</td></tr>
+      <tr><td>Video-quality-view gate (&gt;10 s, viewer &lt;10k followers)</td><td class="file">home-mixer/util/candidates_util.rs</td></tr>
+      <tr><td>Pipeline stage order (sources → hydrators → filters → scorers → selector)</td><td class="file">home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs</td></tr>
+      <tr><td>OON replies/reposts removed before scoring</td><td class="file">home-mixer/filters/oon_retweet_reply_filter.rs</td></tr>
+      <tr><td>One item per conversation per page; thread rendering</td><td class="file">home-mixer/filters/dedup_conversation_filter.rs · home-mixer/util/urt/convo_marshaller.rs</td></tr>
+      <tr><td>Seen / served exclusions</td><td class="file">home-mixer/filters/previously_seen_posts_filter.rs · previously_served_posts_filter.rs</td></tr>
+      <tr><td>Ads blender and brand-safety placement</td><td class="file">home-mixer/ads/partition_organic_blender.rs · home-mixer/models/brand_safety.rs</td></tr>
+      <tr><td>DPP reranker (theta 0.65, top-150 → ≤50)</td><td class="file">home-mixer/scorers/vm_ranker.rs · vm-ranker/dpp.rs · vm-ranker/scoring/dpp_model.rs</td></tr>
+      <tr><td>Mutual-follow reply boost history (20 → 15)</td><td class="file">docs/BIDIRECTIONAL_BOOST_CHANGE.md</td></tr>
+      <tr><td>Ranking model features (post token = hashes + age + semantic IDs)</td><td class="file">phoenix/xrex/models/recsys_feature_prep.py · phoenix/xrex/configs/xrecsys.py</td></tr>
+      <tr><td>Retrieval two-tower (author hash + semantic IDs)</td><td class="file">phoenix/xrex/models/recsys_two_tower_model.py · phoenix/xrex/configs/xrecsys_two_tower.py</td></tr>
+      <tr><td>What gets embedded (text minus t.co, media, card title, quote)</td><td class="file">phoenix/reference/mm_encoder.py</td></tr>
+      <tr><td><code>post_unexplored</code> label (views &lt; 3% of followers, 24h)</td><td class="file">phoenix/xrex/data/recsys/recsys_batch.py:45-73</td></tr>
+      <tr><td>Retrieval index admission (original, VF-clean, ≥1 like) and 24h retention</td><td class="file">phoenix-rankall-strato/…/phoenixRankAllCandidateProcessor.strato · phoenix-rankall/src/config/mod.rs</td></tr>
+      <tr><td>SimClusters: likes only, 8h half-life, ≥8 likes to seed, top-200 per cluster</td><td class="file">simclusters/simclusters_v2/summingbird/storm/TweetJob.scala · Configs.scala · home-mixer/sources/simclusters_source.rs</td></tr>
+      <tr><td>Thunder in-network store (48h, 50 originals / 30 replies per author per request)</td><td class="file">thunder/post_store.rs · thunder/config.rs</td></tr>
+      <tr><td>Reputation PageRank and its consumers (spam exemptions ≥54 / ≥50)</td><td class="file">user-cred-v2/UserCredV2App.scala · botmaker-rules/scarecrow/derived-feature/IsHighPageRankUser.df</td></tr>
+      <tr><td>Visibility rules, everyone vs non-follower recommendations</td><td class="file">visibility-filtering/rules/registry.rs · rules/tweet_label_drops.rs · rules/user_label_drops.rs</td></tr>
+      <tr><td>Ancestor / quoted-post drops carry to your post</td><td class="file">home-mixer/candidate_hydrators/vf_candidate_hydrator.rs:139-178</td></tr>
+      <tr><td>Link-reputation and pinned-link rules</td><td class="file">botmaker-rules/scarecrow/…/PinnedLowQualityOrBadUrl.bot · Tweet_Spam_High_Recall_RTF_All_Bad_URL_Sources.bot · LQ_Tweets_With_LQ_URL_Verdict…_v2.bot</td></tr>
+      <tr><td>LLM spam / engagement-bait / insults labeling</td><td class="file">grox/flows/ptos/task_write_safety_post_annotations_result_sink.py</td></tr>
+      <tr><td>Enforcement rules (llm slop, gibberish, reply spam)</td><td class="file">abuse-enforcement-service/service-lib/rules/enforcement_post.yaml · enforcement_user.yaml</td></tr>
+      <tr><td>Under the Hood eligibility and label allowlist</td><td class="file">under-the-hood/strato/columns/underTheHoodReport.User.strato · strato/lib/underTheHoodLabels.strato</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small muted">Withheld from the repo: Grox LLM prompts, some botmaker rules, URL-reputation verdict logic, BDSM thresholds, the duplicate-text SQL, and the aggregation semantics of <code>DENSE_WITH_SHORT_DWELL</code>. Nothing here should be read as a claim about those.</p>
+</section>
+
+<footer>
+  Built from a local read of <code>xai-org/x-algorithm</code> at commit <code>c65aa17</code> (2026-08-14). Weights are the repo's mirrored production defaults as of 2026-08-12 and change; re-check <code>home-mixer/params/param.rs</code> before relying on a number. Withheld from the repo: Grox LLM prompts and some botmaker rules.
+</footer>
+</main>
+</div>
+</div>
+
+<script>
+(function(){
+  // ---- exact production weights (home-mixer/params/param.rs, sync 2026-08-12) ----
+  const W = {
+    favorite:0.5, reply:5.0, retweet:1.0, quote:5.0, share:2.0, share_via_dm:5.0, share_via_copy_link:20.0,
+    follow_author:4.0, click:0.4, open_link:0.2, photo_expand:0.05, video_open:0.05, vqv:0.05, quoted_click:0.05,
+    quoted_vqv:0.0, profile_click:0.0, dwell:0.0, cont_dwell_time:0.004, post_unexplored:0.02,
+    not_interested:-43.2, block_author:-31.2, mute_author:-58.8, report:-234.0, not_dwelled:-0.02
+  };
+  const BIDIR_REPLY_BOOST = 15.0, AUTHOR_DIVERSITY_DECAY = 0.5, AUTHOR_DIVERSITY_FLOOR = 0.25, OON_FACTOR = 0.75;
+  const NEG_OFFSET = 0.001, MIN_VIDEO_MS = 10000, VIEWER_FOLLOWER_CAP = 10000;
+  // sums as computed in ScoringWeights::from_params
+  const positive_sum = W.favorite+W.reply+W.retweet+W.photo_expand+W.video_open+W.click+W.open_link+W.profile_click+W.vqv+W.share+W.share_via_dm+W.share_via_copy_link+W.dwell+W.quote+W.quoted_click+W.quoted_vqv+W.follow_author+W.post_unexplored;
+  const negative_sum = -(W.not_interested+W.block_author+W.mute_author+W.report+W.not_dwelled);
+  const total_sum = positive_sum + negative_sum;
+
+  // sliders: [key, label, max(%), step, kind] kind: 'p' probability %, 's' seconds
+  const S = [
+    ['favorite','Like','p',30],
+    ['reply','Reply','p',10],
+    ['quote','Quote','p',5],
+    ['retweet','Repost','p',10],
+    ['share_via_copy_link','Copy link','p',5],
+    ['share_via_dm','Share via DM','p',5],
+    ['share','Share sheet','p',5],
+    ['follow_author','Follow author','p',5],
+    ['click','Open post','p',30],
+    ['open_link','Open link','p',20],
+    ['photo_expand','Expand photo','p',30],
+    ['video_open','Open video','p',30],
+    ['vqv','Video quality view','p',40],
+    ['quoted_click','Click quoted post','p',20],
+    ['dwell_secs','Dwell (seconds)','s',60],
+    ['post_unexplored','Post unexplored','p',100],
+    ['not_dwelled','Scroll past (not dwelled)','p',100,'neg'],
+    ['not_interested','Not interested','p',3,'neg'],
+    ['mute_author','Mute author','p',2,'neg'],
+    ['block_author','Block author','p',2,'neg'],
+    ['report','Report','p',1,'neg'],
+  ];
+  const presets = {
+    generic:    {favorite:3, reply:0.2, quote:0.05, retweet:0.4, share_via_copy_link:0.05, share_via_dm:0.05, share:0.1, follow_author:0.1, click:4, open_link:0, photo_expand:0, video_open:0, vqv:0, quoted_click:0, dwell_secs:6, post_unexplored:20, not_dwelled:60, not_interested:0.02, mute_author:0.01, block_author:0.005, report:0.002},
+    discussion: {favorite:2.5, reply:1.5, quote:0.4, retweet:0.3, share_via_copy_link:0.1, share_via_dm:0.2, share:0.15, follow_author:0.3, click:8, open_link:0, photo_expand:0, video_open:0, vqv:0, quoted_click:0, dwell_secs:14, post_unexplored:25, not_dwelled:45, not_interested:0.02, mute_author:0.01, block_author:0.005, report:0.002},
+    resource:   {favorite:4, reply:0.3, quote:0.3, retweet:1.0, share_via_copy_link:0.8, share_via_dm:0.5, share:0.4, follow_author:0.6, click:10, open_link:2, photo_expand:8, video_open:0, vqv:0, quoted_click:0, dwell_secs:20, post_unexplored:30, not_dwelled:40, not_interested:0.015, mute_author:0.005, block_author:0.003, report:0.001},
+    video:      {favorite:2.5, reply:0.3, quote:0.1, retweet:0.4, share_via_copy_link:0.2, share_via_dm:0.3, share:0.2, follow_author:0.3, click:3, open_link:0, photo_expand:0, video_open:15, vqv:12, quoted_click:0, dwell_secs:25, post_unexplored:25, not_dwelled:50, not_interested:0.02, mute_author:0.01, block_author:0.005, report:0.002},
+    ragebait:   {favorite:3, reply:2.5, quote:1.2, retweet:0.4, share_via_copy_link:0.1, share_via_dm:0.2, share:0.1, follow_author:0.1, click:6, open_link:0, photo_expand:0, video_open:0, vqv:0, quoted_click:0, dwell_secs:10, post_unexplored:20, not_dwelled:50, not_interested:0.4, mute_author:0.2, block_author:0.12, report:0.06},
+  };
+  const $ = id => document.getElementById(id);
+  const slidersEl = $('sliders');
+  const inputs = {};
+  S.forEach(([k,label,kind,max,neg])=>{
+    const row = document.createElement('div'); row.className='sl'+(neg?' neg':'');
+    const w = kind==='s' ? W.cont_dwell_time : W[k];
+    row.innerHTML = `<div class="lab">${label}<small>w = ${kind==='s'?w+'/s':w}</small></div><div class="val" id="v-${k}"></div><input type="range" id="i-${k}" min="0" max="${max}" step="${kind==='s'?1:(max<=1?0.001:(max<=5?0.01:0.1))}" value="0" aria-label="${label}">`;
+    slidersEl.appendChild(row);
+    inputs[k] = row.querySelector('input');
+    inputs[k].addEventListener('input', update);
+  });
+  ['t-mutual','t-oon','t-replyrt','t-video','t-bigviewer','t-k'].forEach(id=>$(id).addEventListener('input', update));
+  document.querySelectorAll('#presets button').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('#presets button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    const p = presets[b.dataset.p]; Object.keys(p).forEach(k=>{ if(inputs[k]) inputs[k].value = p[k]; });
+    $('t-video').checked = b.dataset.p==='video';
+    update();
+  }));
+
+  function fmt(x){ return (Math.abs(x)>=100? x.toFixed(1) : Math.abs(x)>=1? x.toFixed(3): x.toFixed(4)); }
+  function update(){
+    const mutual = $('t-mutual').checked, oon = $('t-oon').checked, replyrt = $('t-replyrt').checked, video = $('t-video').checked, bigviewer = $('t-bigviewer').checked;
+    const k = Math.max(0, parseInt($('t-k').value||'0',10));
+    const P = {}; S.forEach(([key,,kind])=>{ const v = parseFloat(inputs[key].value)||0; P[key] = kind==='s' ? v : v/100; $('v-'+key).textContent = kind==='s' ? v+' s' : v+'%'; });
+    // eligibility mirrors ScoringWeights::bidirectional_boost_eligible (original post + mutual follow)
+    const bidirEligible = mutual && !replyrt;
+    const replyW = W.reply + (bidirEligible ? BIDIR_REPLY_BOOST : 0);
+    const vqvW = (!bigviewer && video) ? W.vqv : 0.0;   // util/candidates_util.rs::vqv_weight
+    const inNetwork = !oon;
+    const puW = inNetwork ? W.post_unexplored : 0.0;     // PostUnexploredWeightInNetworkOnly = true
+    const terms = [
+      ['Like', P.favorite*W.favorite], ['Reply', P.reply*replyW], ['Repost', P.retweet*W.retweet], ['Expand photo', P.photo_expand*W.photo_expand],
+      ['Open video', P.video_open*W.video_open], ['Open post', P.click*W.click], ['Open link', P.open_link*W.open_link], ['VQV', P.vqv*vqvW],
+      ['Share sheet', P.share*W.share], ['Share via DM', P.share_via_dm*W.share_via_dm], ['Copy link', P.share_via_copy_link*W.share_via_copy_link],
+      ['Quote', P.quote*W.quote], ['Click quoted', P.quoted_click*W.quoted_click], ['Dwell time', P.dwell_secs*W.cont_dwell_time],
+      ['Follow author', P.follow_author*W.follow_author], ['Not interested', P.not_interested*W.not_interested], ['Block author', P.block_author*W.block_author],
+      ['Mute author', P.mute_author*W.mute_author], ['Report', P.report*W.report], ['Not dwelled', P.not_dwelled*W.not_dwelled], ['Post unexplored', P.post_unexplored*puW],
+    ];
+    let pos=0, neg=0; terms.forEach(([,t])=>{ if(t>=0) pos+=t; else neg-=t; });
+    const combined = pos-neg;
+    const weighted = combined<0 ? (combined+negative_sum)/total_sum*NEG_OFFSET : combined+NEG_OFFSET;   // offset_score
+    const div = (1-AUTHOR_DIVERSITY_FLOOR)*Math.pow(AUTHOR_DIVERSITY_DECAY,k)+AUTHOR_DIVERSITY_FLOOR;      // diversity_multiplier
+    const oonApplies = oon || (inNetwork && replyrt);                                                       // oon_applies closure
+    const oonM = oonApplies ? OON_FACTOR : 1.0;
+    const finalScore = weighted*div*oonM;
+    $('s-final').textContent = fmt(finalScore);
+    $('s-weighted').textContent = fmt(weighted); $('s-pos').textContent = '+'+fmt(pos); $('s-neg').textContent = '−'+fmt(neg);
+    $('s-div').textContent = div.toFixed(3); $('s-oon').textContent = oonM.toFixed(3);
+    $('s-likes').textContent = (finalScore/W.favorite).toFixed(2);
+    $('s-note').textContent = combined<0 ? 'Net negative: squashed to the 0.000–0.001 band, beneath every net-positive post in the pool.' : (bidirEligible ? 'Mutual-follow original post: reply weight is 20.0 (5.0 + 15.0).' : (replyrt ? 'Replies and reposts from followed accounts get the 0.75 out-of-network factor too.' : ''));
+    // contributions
+    const maxAbs = Math.max(1e-9, ...terms.map(([,t])=>Math.abs(t)));
+    const c = $('contrib'); c.innerHTML='';
+    terms.filter(([,t])=>t!==0).sort((a,b)=>Math.abs(b[1])-Math.abs(a[1])).forEach(([n,t])=>{
+      const row=document.createElement('div'); row.className='c';
+      row.innerHTML=`<span class="n">${n}</span><span><span class="b${t<0?' neg':''}" style="width:${Math.max(1,Math.abs(t)/maxAbs*100)}%;display:block"></span></span><span class="v">${t<0?'−':'+'}${fmt(Math.abs(t))}</span>`;
+      c.appendChild(row);
+    });
+  }
+  // init with generic preset
+  (function(){ const p=presets.generic; Object.keys(p).forEach(k=>{ if(inputs[k]) inputs[k].value=p[k]; }); update(); })();
+
+  // rail highlight
+  const links=[...document.querySelectorAll('nav.rail a')]; const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{es.forEach(e=>{ if(e.isIntersecting){ links.forEach(l=>l.classList.toggle('on', l.getAttribute('href')==='#'+e.target.id)); } });},{rootMargin:'-20% 0px -70% 0px'}); secs.forEach(s=>s&&io.observe(s)); }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+# X Boss (xboss)
+
+> X's For You ranking, made usable: mirrored production weights (auto-synced from xai-org/x-algorithm), a scorer that reproduces the ranking arithmetic, a draft linter, an account analyzer, and an AI skill so any assistant can read a person's account and tell them what to post.
+
+Start with skills/xboss/SKILL.md if you are helping a person; start with knowledge/01-scoring.md if you are learning the mechanics.
+
+## Core
+- [Skill / procedure](skills/xboss/SKILL.md): intake-first workflow for AI assistants
+- [Agent instructions](AGENTS.md): commands, ground-truth order, style
+- [Weights (data)](data/weights.json): every weight/threshold with file:line provenance
+- [All params](data/params.json), [constants](data/constants.json), [index retention windows](data/retention_windows.json)
+- [Changelog](CHANGELOG.md): every upstream change detected by the daily sync
+
+## Knowledge
+- [01 Scoring](knowledge/01-scoring.md): formula, weights, negative squash, cold-start, diversity, OON factor, DPP
+- [02 Reach](knowledge/02-reach.md): retrieval index door (original + clean + ≥1 like, 24h), what the model sees, SimClusters, threads/reposts, reputation
+- [03 Suppression](knowledge/03-suppression.md): visibility rules, how creators get labeled, checklist, Under the Hood
+- [04 Myths](knowledge/04-myths.md): popular claims vs the code
+- [05 Playbook](knowledge/05-playbook.md): what to do
+
+## Tools
+- [CLI](xboss/cli.py): weights · explain · score · lint · analyze · cold-start
+- [Collector](scripts/collect_profile.js): export your own posts as JSON, locally
+- [Sync](scripts/sync.py): extract + diff upstream parameters
+- [MCP server](mcp/server.py): tools for Claude Desktop / Cursor / any MCP client
+- [System prompt](prompts/system_prompt.md): paste-in version for ChatGPT/Claude web
+- [Simulator + manual (web)](docs/index.html)

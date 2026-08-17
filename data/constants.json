@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "commit": "c65aa17",
+    "commit_date": "2026-08-14",
+    "upstream": "https://github.com/xai-org/x-algorithm",
+    "param_rs_last_sync": "2026-08-12T04:09:22Z",
+    "extracted_at": "2026-08-17T16:24:05Z"
+  },
+  "constants": {
+    "home-mixer/params/config.rs": {
+      "FS_PATH": {
+        "type": "&str",
+        "value": "/usr/local/config/features/home-mixer/main/rust_home_mixer.yml",
+        "raw": "\"/usr/local/config/features/home-mixer/main/rust_home_mixer.yml\"",
+        "file": "home-mixer/params/config.rs",
+        "line": 1
+      },
+      "STRINGCENTER_BUNDLE_PATH": {
+        "type": "&str",
+        "value": "/config/stringcenter/timelinemixer.json",
+        "raw": "\"/config/stringcenter/timelinemixer.json\"",
+        "file": "home-mixer/params/config.rs",
+        "line": 3
+      },
+      "TEST_USER_IDS": {
+        "type": "&[u64]",
+        "value": "&[123, 234]",
+        "raw": "&[123, 234]",
+        "file": "home-mixer/params/config.rs",
+        "line": 13
+      },
+      "TRACE_USER_IDS": {
+        "type": "&[u64]",
+        "value": "&[]",
+        "raw": "&[]",
+        "file": "home-mixer/params/config.rs",
+        "line": 14
+      },
+      "MAX_GRPC_MESSAGE_SIZE": {
+        "type": "usize",
+        "value": 134217728,
+        "raw": "128 * 1024 * 1024",
+        "file": "home-mixer/params/config.rs",
+        "line": 16
+      },
+      "TOP_K_CANDIDATES_TO_SELECT": {
+        "type": "usize",
+        "value": 50,
+        "raw": "50",
+        "file": "home-mixer/params/config.rs",
+        "line": 17
+      },
+      "RESULT_SIZE": {
+        "type": "usize",
+        "value": 35,
+        "raw": "35",
+        "file": "home-mixer/params/config.rs",
+        "line": 18
+      },
+      "FEED_MODULE_SLOTS": {
+        "type": "usize",
+        "value": 4,
+        "raw": "4",
+        "file": "home-mixer/params/config.rs",
+        "line": 19
+      },
+      "MAX_JETFUEL_FRAMES_PER_RESPONSE": {
+        "type": "usize",
+        "value": 8,
+        "raw": "8",
+        "file": "home-mixer/params/config.rs",
+        "line": 20
+      },
+      "FOR_YOU_MAX_RESULT_SIZE": {
+        "type": "usize",
+        "value": 47,
+        "raw": "RESULT_SIZE + FEED_MODULE_SLOTS + MAX_JETFUEL_FRAMES_PER_RESPONSE",
+        "file": "home-mixer/params/config.rs",
+        "line": 21
+      },
+      "RANKED_FOLLOWING_MAX_RESULT_SIZE": {
+        "type": "usize",
+        "value": 38,
+        "raw": "38",
+        "file": "home-mixer/params/config.rs",
+        "line": 23
+      },
+      "FOLLOWING_MAX_RESULT_SIZE": {
+        "type": "usize",
+        "value": 100,
+        "raw": "100",
+        "file": "home-mixer/params/config.rs",
+        "line": 24
+      },
+      "FOLLOWING_ADS_TOP_K": {
+        "type": "usize",
+        "value": 9,
+        "raw": "9",
+        "file": "home-mixer/params/config.rs",
+        "line": 25
+      },
+      "FOLLOWING_POST_FETCH_SIZE": {
+        "type": "usize",
+        "value": 91,
+        "raw": "FOLLOWING_MAX_RESULT_SIZE - FOLLOWING_ADS_TOP_K",
+        "file": "home-mixer/params/config.rs",
+        "line": 26
+      },
+      "FOLLOWING_PIPELINE_RESULT_SIZE": {
+        "type": "usize",
+        "value": 102,
+        "raw": "FOLLOWING_MAX_RESULT_SIZE + 2",
+        "file": "home-mixer/params/config.rs",
+        "line": 27
+      },
+      "WHO_TO_FOLLOW_POSITION": {
+        "type": "usize",
+        "value": 6,
+        "raw": "6",
+        "file": "home-mixer/params/config.rs",
+        "line": 29
+      },
+      "FOLLOWING_WHO_TO_FOLLOW_MIN_POSTS": {
+        "type": "usize",
+        "value": 10,
+        "raw": "10",
+        "file": "home-mixer/params/config.rs",
+        "line": 30
+      },
+      "PROMPTS_POSITION": {
+        "type": "i32",
+        "value": 0,
+        "raw": "0",
+        "file": "home-mixer/params/config.rs",
+        "line": 31
+      },
+      "FEED_SURVEY_POSITION": {
+        "type": "usize",
+        "value": 12,
+        "raw": "12",
+        "file": "home-mixer/params/config.rs",
+        "line": 32
+      },
+      "UAS_WINDOW_TIME_MS": {
+        "type": "i64",
+        "value": 300000,
+        "raw": "300_000",
+        "file": "home-mixer/params/config.rs",
+        "line": 34
+      },
+      "MAX_POST_AGE": {
+        "type": "u64",
+        "value": 172800,
+        "raw": "48 * 60 * 60",
+        "file": "home-mixer/params/config.rs",
+        "line": 36
+      },
+      "NEW_USER_OON_WEIGHT_FACTOR": {
+        "type": "f64",
+        "value": 1e-05,
+        "raw": "0.00001",
+        "file": "home-mixer/params/config.rs",
+        "line": 38
+      },
+      "NEW_USER_MIN_FOLLOWING": {
+        "type": "usize",
+        "value": 5,
+        "raw": "5",
+        "file": "home-mixer/params/config.rs",
+        "line": 39
+      },
+      "NEGATIVE_SCORES_OFFSET": {
+        "type": "f64",
+        "value": 0.001,
+        "raw": "0.001",
+        "file": "home-mixer/params/config.rs",
+        "line": 40
+      }
+    },
+    "home-mixer/util/candidates_util.rs": {
+      "MAX_FOLLOWERS_THRESHOLD": {
+        "type": "i64",
+        "value": 10000,
+        "raw": "10_000",
+        "file": "home-mixer/util/candidates_util.rs",
+        "line": 4
+      }
+    },
+    "home-mixer/sources/simclusters_source.rs": {
+      "MAX_SANN_CANDIDATES": {
+        "type": "usize",
+        "value": 10000,
+        "raw": "10_000",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 24
+      },
+      "MAX_RESULTS": {
+        "type": "usize",
+        "value": 800,
+        "raw": "800",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 25
+      },
+      "SOURCE_EMBEDDING_TYPE": {
+        "type": "EmbeddingType",
+        "value": "EmbeddingType::LOG_FAV_LONGEST_L2_EMBEDDING_TWEET",
+        "raw": "EmbeddingType::LOG_FAV_LONGEST_L2_EMBEDDING_TWEET",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 26
+      },
+      "CANDIDATE_EMBEDDING_TYPE": {
+        "type": "EmbeddingType",
+        "value": "EmbeddingType::LOG_FAV_BASED_TWEET",
+        "raw": "EmbeddingType::LOG_FAV_BASED_TWEET",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 27
+      },
+      "MODEL_VERSION": {
+        "type": "ModelVersion",
+        "value": "ModelVersion::MODEL_20M_145K_2020",
+        "raw": "ModelVersion::MODEL_20M_145K_2020",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 28
+      },
+      "ANN_MAX_NUM_RESULTS": {
+        "type": "i32",
+        "value": 200,
+        "raw": "200",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 29
+      },
+      "ANN_MIN_SCORE": {
+        "type": "f64",
+        "value": 0.0,
+        "raw": "0.0",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 30
+      },
+      "ANN_MAX_TOP_POSTS_PER_CLUSTER": {
+        "type": "i32",
+        "value": 800,
+        "raw": "800",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 31
+      },
+      "ANN_MAX_SCAN_CLUSTERS": {
+        "type": "i32",
+        "value": 50,
+        "raw": "50",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 32
+      },
+      "ANN_MAX_POST_CANDIDATE_AGE_HOURS": {
+        "type": "i32",
+        "value": 48,
+        "raw": "48",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 33
+      },
+      "ANN_MIN_POST_CANDIDATE_AGE_HOURS": {
+        "type": "i32",
+        "value": 0,
+        "raw": "0",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 34
+      },
+      "POST_ANN_MIN_SCORE": {
+        "type": "f64",
+        "value": 0.5,
+        "raw": "0.5",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 35
+      },
+      "CACHE_METRIC": {
+        "type": "&str",
+        "value": "SimclustersSource.cache",
+        "raw": "\"SimclustersSource.cache\"",
+        "file": "home-mixer/sources/simclusters_source.rs",
+        "line": 36
+      }
+    },
+    "home-mixer/scorers/ranking_scorer.rs": {
+      "DWELL_REGRET_SIGMOID_MODE": {
+        "type": "&str",
+        "value": "dwell_regret_sigmoid",
+        "raw": "\"dwell_regret_sigmoid\"",
+        "file": "home-mixer/scorers/ranking_scorer.rs",
+        "line": 14
+      },
+      "GATED_DWELL_REGRET_MODE": {
+        "type": "&str",
+        "value": "gated_dwell_regret",
+        "raw": "\"gated_dwell_regret\"",
+        "file": "home-mixer/scorers/ranking_scorer.rs",
+        "line": 15
+      },
+      "DWELL_REGRET_MEAN_EPS": {
+        "type": "f64",
+        "value": "1e-9",
+        "raw": "1e-9",
+        "file": "home-mixer/scorers/ranking_scorer.rs",
+        "line": 16
+      },
+      "DWELL_REGRET_MIN_TEMPERATURE": {
+        "type": "f64",
+        "value": "1e-6",
+        "raw": "1e-6",
+        "file": "home-mixer/scorers/ranking_scorer.rs",
+        "line": 17
+      },
+      "GATE_WEIGHTS_ALL_ZERO": {
+        "type": "&str",
+        "value": "seq_len:0,n_fav:0,n_reply:0,n_rt_quote:0,n_vqv:0,n_click:0,n_bm_share:0,n_profile_follow:0,n_photo:0,n_negfb:0,n_7d:0,n_1d:0,active_days:0,active_days_7d:0,days_since_last:0,span_days:0,followers:0,followings:0,account_age_years:0",
+        "raw": "\"seq_len:0,n_fav:0,n_reply:0,n_rt_quote:0,n_vqv:0,n_click:0,n_bm_share:0,n_profile_follow:0,n_photo:0,n_negfb:0,n_7d:0,n_1d:0,active_days:0,active_days_7d:0,days_since_last:0,span_days:0,followers:0,followings:0,account_age_years:0\"",
+        "file": "home-mixer/scorers/ranking_scorer.rs",
+        "line": 918
+      }
+    },
+    "home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs": {},
+    "thunder/config.rs": {
+      "MAX_POSTS_TO_RETURN": {
+        "type": "usize",
+        "value": 1200,
+        "raw": "1200",
+        "file": "thunder/config.rs",
+        "line": 1
+      },
+      "MAX_VIDEOS_TO_RETURN": {
+        "type": "usize",
+        "value": 600,
+        "raw": "600",
+        "file": "thunder/config.rs",
+        "line": 2
+      },
+      "MAX_INPUT_LIST_SIZE": {
+        "type": "usize",
+        "value": 10000,
+        "raw": "10000",
+        "file": "thunder/config.rs",
+        "line": 3
+      },
+      "MAX_REPLY_POSTS_PER_AUTHOR": {
+        "type": "usize",
+        "value": 30,
+        "raw": "30",
+        "file": "thunder/config.rs",
+        "line": 5
+      },
+      "MAX_ORIGINAL_POSTS_PER_AUTHOR": {
+        "type": "usize",
+        "value": 50,
+        "raw": "50",
+        "file": "thunder/config.rs",
+        "line": 6
+      },
+      "MAX_VIDEO_POSTS_PER_AUTHOR": {
+        "type": "usize",
+        "value": 100,
+        "raw": "100",
+        "file": "thunder/config.rs",
+        "line": 7
+      },
+      "MAX_TINY_POSTS_PER_USER_SCAN": {
+        "type": "usize",
+        "value": 500,
+        "raw": "500",
+        "file": "thunder/config.rs",
+        "line": 8
+      },
+      "DELETE_EVENT_KEY": {
+        "type": "i64",
+        "value": 0,
+        "raw": "0",
+        "file": "thunder/config.rs",
+        "line": 10
+      },
+      "MAX_POSTING_LIST_SIZE": {
+        "type": "usize",
+        "value": 5000,
+        "raw": "5000",
+        "file": "thunder/config.rs",
+        "line": 12
+      },
+      "TRIM_FRACTION": {
+        "type": "usize",
+        "value": 5,
+        "raw": "5",
+        "file": "thunder/config.rs",
+        "line": 14
+      }
+    },
+    "vm-ranker/args.rs": {}
+  }
+}

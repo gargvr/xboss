@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xboss"
+version = "0.1.0"
+description = "X Boss: read X's own ranking code, let your AI read your account, post what travels. X's For You ranking, made usable: mirrored production weights (auto-synced), a scorer that reproduces the ranking arithmetic, a draft linter, an account analyzer, and an AI skill."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Himanshu Garg" }]
+keywords = ["x", "twitter", "algorithm", "for-you", "ranking", "creator", "ai-agent"]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Operating System :: OS Independent"]
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp[cli]>=1.2"]
+dev = ["pytest"]
+
+[project.scripts]
+xboss = "xboss.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/gargvr/xboss"
+Upstream = "https://github.com/xai-org/x-algorithm"
+
+[tool.setuptools]
+packages = ["xboss"]
+
+[tool.setuptools.package-data]
+xboss = []
