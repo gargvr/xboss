@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "c65aa17",
-    "commit_date": "2026-08-14",
+    "commit": "b089ce6",
+    "commit_date": "2026-08-17",
     "upstream": "https://github.com/xai-org/x-algorithm",
     "param_rs_last_sync": "2026-08-12T04:09:22Z",
-    "extracted_at": "2026-08-17T16:24:05Z"
+    "extracted_at": "2026-08-18T03:41:31Z"
   },
   "constants": {
     "home-mixer/params/config.rs": {
@@ -87,8 +87,8 @@
       },
       "FOLLOWING_MAX_RESULT_SIZE": {
         "type": "usize",
-        "value": 100,
-        "raw": "100",
+        "value": 110,
+        "raw": "110",
         "file": "home-mixer/params/config.rs",
         "line": 24
       },
@@ -101,14 +101,14 @@
       },
       "FOLLOWING_POST_FETCH_SIZE": {
         "type": "usize",
-        "value": 91,
+        "value": 101,
         "raw": "FOLLOWING_MAX_RESULT_SIZE - FOLLOWING_ADS_TOP_K",
         "file": "home-mixer/params/config.rs",
         "line": 26
       },
       "FOLLOWING_PIPELINE_RESULT_SIZE": {
         "type": "usize",
-        "value": 102,
+        "value": 112,
         "raw": "FOLLOWING_MAX_RESULT_SIZE + 2",
         "file": "home-mixer/params/config.rs",
         "line": 27
@@ -313,7 +313,7 @@
         "value": "seq_len:0,n_fav:0,n_reply:0,n_rt_quote:0,n_vqv:0,n_click:0,n_bm_share:0,n_profile_follow:0,n_photo:0,n_negfb:0,n_7d:0,n_1d:0,active_days:0,active_days_7d:0,days_since_last:0,span_days:0,followers:0,followings:0,account_age_years:0",
         "raw": "\"seq_len:0,n_fav:0,n_reply:0,n_rt_quote:0,n_vqv:0,n_click:0,n_bm_share:0,n_profile_follow:0,n_photo:0,n_negfb:0,n_7d:0,n_1d:0,active_days:0,active_days_7d:0,days_since_last:0,span_days:0,followers:0,followings:0,account_age_years:0\"",
         "file": "home-mixer/scorers/ranking_scorer.rs",
-        "line": 918
+        "line": 941
       }
     },
     "home-mixer/candidate_pipeline/phoenix_candidate_pipeline.rs": {},

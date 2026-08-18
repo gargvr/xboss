@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "c65aa17",
-    "commit_date": "2026-08-14",
+    "commit": "b089ce6",
+    "commit_date": "2026-08-17",
     "upstream": "https://github.com/xai-org/x-algorithm",
     "param_rs_last_sync": "2026-08-12T04:09:22Z",
-    "extracted_at": "2026-08-17T16:24:05Z"
+    "extracted_at": "2026-08-18T03:41:31Z"
   },
   "params": {
     "PhoenixMaxResults": {
@@ -1225,13 +1225,21 @@
       "file": "home-mixer/params/param.rs",
       "line": 914
     },
+    "EnableAdsBrandSafetyVerdictV2": {
+      "key": "rust_home_mixer_ads_bs_v2_exp_enabled",
+      "type": "bool",
+      "value": false,
+      "raw": "false",
+      "file": "home-mixer/params/param.rs",
+      "line": 921
+    },
     "AdsTimeGapTSec": {
       "key": "rust_home_mixer_ads_time_gap_t_sec",
       "type": "f64",
       "value": 4.0,
       "raw": "4.0",
       "file": "home-mixer/params/param.rs",
-      "line": 920
+      "line": 927
     },
     "AdsTimeGapClampLo": {
       "key": "rust_home_mixer_ads_time_gap_clamp_lo",
@@ -1239,7 +1247,7 @@
       "value": 0.5,
       "raw": "0.5",
       "file": "home-mixer/params/param.rs",
-      "line": 926
+      "line": 933
     },
     "AdsTimeGapClampHi": {
       "key": "rust_home_mixer_ads_time_gap_clamp_hi",
@@ -1247,7 +1255,7 @@
       "value": 2.0,
       "raw": "2.0",
       "file": "home-mixer/params/param.rs",
-      "line": 932
+      "line": 939
     },
     "AdsTimeGapMinOrganicGap": {
       "key": "rust_home_mixer_ads_time_gap_min_organic_gap",
@@ -1255,7 +1263,7 @@
       "value": 3,
       "raw": "3",
       "file": "home-mixer/params/param.rs",
-      "line": 938
+      "line": 945
     },
     "UseXdsForUas": {
       "key": "rust_home_mixer_use_xds_for_uas",
@@ -1263,7 +1271,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 944
+      "line": 951
     },
     "UasSourceDataType": {
       "key": "rust_home_mixer_uas_source_data_type",
@@ -1271,7 +1279,7 @@
       "value": "NEW_UUA_ARROW",
       "raw": "\"NEW_UUA_ARROW\"",
       "file": "home-mixer/params/param.rs",
-      "line": 945
+      "line": 952
     },
     "MaxSeqLengthScoring": {
       "key": "rust_home_mixer_max_seq_length_scoring",
@@ -1279,7 +1287,7 @@
       "value": 1024,
       "raw": "1024",
       "file": "home-mixer/params/param.rs",
-      "line": 951
+      "line": 958
     },
     "MaxSeqLengthRetrieval": {
       "key": "rust_home_mixer_max_seq_length_retrieval",
@@ -1287,7 +1295,7 @@
       "value": 1024,
       "raw": "1024",
       "file": "home-mixer/params/param.rs",
-      "line": 957
+      "line": 964
     },
     "EnableAdAdjacentServedFilter": {
       "key": "rust_home_mixer_enable_ad_adjacent_served_filter",
@@ -1295,7 +1303,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 964
+      "line": 971
     },
     "EnableServedFilterAllRequests": {
       "key": "rust_home_mixer_enable_served_filter_all_requests",
@@ -1303,7 +1311,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 970
+      "line": 977
     },
     "EnableInventoryHoldout": {
       "key": "rust_home_mixer_enable_inventory_holdout",
@@ -1311,7 +1319,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 977
+      "line": 984
     },
     "InventoryHoldoutOriginalsPercent": {
       "key": "rust_home_mixer_inventory_holdout_originals_percent",
@@ -1319,7 +1327,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 983
+      "line": 990
     },
     "InventoryHoldoutRepliesPercent": {
       "key": "rust_home_mixer_inventory_holdout_replies_percent",
@@ -1327,7 +1335,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 989
+      "line": 996
     },
     "InventoryHoldoutRetweetsPercent": {
       "key": "rust_home_mixer_inventory_holdout_retweets_percent",
@@ -1335,7 +1343,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 995
+      "line": 1002
     },
     "EnableEntryIdRandomHash": {
       "key": "rust_home_mixer_enable_entry_id_random_hash",
@@ -1343,7 +1351,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1002
+      "line": 1009
     },
     "EnableTopicFeedbackContext": {
       "key": "rust_home_mixer_enable_topic_feedback_context",
@@ -1351,7 +1359,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1009
+      "line": 1016
     },
     "EnablePhoenixRequestCacheSideEffect": {
       "key": "rust_home_mixer_enable_phoenix_request_cache_side_effect",
@@ -1359,7 +1367,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1016
+      "line": 1023
     },
     "PhoenixRequestCacheSideEffectTtlSeconds": {
       "key": "rust_home_mixer_phoenix_request_cache_side_effect_ttl_seconds",
@@ -1367,7 +1375,7 @@
       "value": 10800,
       "raw": "10800",
       "file": "home-mixer/params/param.rs",
-      "line": 1022
+      "line": 1029
     },
     "EnableUrtMigrationComponents": {
       "key": "rust_home_mixer_enable_urt_migration_components",
@@ -1375,7 +1383,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1029
+      "line": 1036
     },
     "EnableAuthorServedMetricsExperimentBucket": {
       "key": "rust_home_mixer_enable_author_served_metrics_experiment_bucket",
@@ -1383,7 +1391,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1036
+      "line": 1043
     },
     "AuthorServedMetricsAuthorIds": {
       "key": "rust_home_mixer_author_served_metrics_author_ids",
@@ -1391,7 +1399,7 @@
       "value": [],
       "raw": "vec![]",
       "file": "home-mixer/params/param.rs",
-      "line": 1042
+      "line": 1049
     },
     "EnablePublishSeenIdsToKafka": {
       "key": "rust_home_mixer_enable_publish_seen_ids_kafka",
@@ -1399,7 +1407,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1049
+      "line": 1056
     },
     "EnableWhoToFollowModule": {
       "key": "rust_home_mixer_enable_who_to_follow_module",
@@ -1407,7 +1415,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1056
+      "line": 1063
     },
     "WhoToFollowFatigueHours": {
       "key": "rust_home_mixer_who_to_follow_fatigue_hours",
@@ -1415,7 +1423,7 @@
       "value": 30,
       "raw": "30",
       "file": "home-mixer/params/param.rs",
-      "line": 1062
+      "line": 1069
     },
     "EnablePrompts": {
       "key": "rust_home_mixer_enable_prompts",
@@ -1423,7 +1431,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1069
+      "line": 1076
     },
     "ExcludeServedTweetIdsDuration": {
       "key": "rust_home_mixer_exclude_served_tweet_ids_duration_minutes",
@@ -1431,7 +1439,7 @@
       "value": 10,
       "raw": "10",
       "file": "home-mixer/params/param.rs",
-      "line": 1071
+      "line": 1078
     },
     "ExcludeServedTweetIdsNumber": {
       "key": "rust_home_mixer_exclude_served_tweet_ids_number",
@@ -1439,7 +1447,7 @@
       "value": 100,
       "raw": "100",
       "file": "home-mixer/params/param.rs",
-      "line": 1077
+      "line": 1084
     },
     "EnableJetfuelFrames": {
       "key": "rust_home_mixer_enable_jetfuel_frames",
@@ -1447,7 +1455,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1084
+      "line": 1091
     },
     "EnableJetfuelFrameSoccer": {
       "key": "rust_home_mixer_jetfuel_frame_soccer_enabled",
@@ -1455,7 +1463,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1090
+      "line": 1097
     },
     "EnableJetfuelFrameNfl": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_enabled",
@@ -1463,7 +1471,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1096
+      "line": 1103
     },
     "EnableJetfuelFrameMlbCarousel": {
       "key": "rust_home_mixer_jetfuel_frame_mlb_carousel_enabled",
@@ -1471,7 +1479,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1102
+      "line": 1109
     },
     "EnableJetfuelFrameNflTimelinePinned": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_timeline_pinned_enabled",
@@ -1479,7 +1487,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1108
+      "line": 1115
     },
     "EnableJetfuelFrameNflTimelineRotation": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_timeline_rotation_enabled",
@@ -1487,7 +1495,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1114
+      "line": 1121
     },
     "EnableFeedSurvey": {
       "key": "rust_home_mixer_enable_feed_survey",
@@ -1495,7 +1503,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1121
+      "line": 1128
     },
     "FeedSurveyFatigueHours": {
       "key": "rust_home_mixer_feed_survey_fatigue_hours",
@@ -1503,7 +1511,7 @@
       "value": 24,
       "raw": "24",
       "file": "home-mixer/params/param.rs",
-      "line": 1127
+      "line": 1134
     },
     "EnableXaiVfClient": {
       "key": "rust_home_mixer_enable_xai_vf_client",
@@ -1511,7 +1519,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1134
+      "line": 1141
     },
     "PhoenixScoresResultSize": {
       "key": "rust_home_mixer_phoenix_scores_result_size",
@@ -1519,7 +1527,7 @@
       "value": 2800,
       "raw": "2800",
       "file": "home-mixer/params/param.rs",
-      "line": 1141
+      "line": 1148
     }
   }
 }

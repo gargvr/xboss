@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "c65aa17",
-    "commit_date": "2026-08-14",
+    "commit": "b089ce6",
+    "commit_date": "2026-08-17",
     "upstream": "https://github.com/xai-org/x-algorithm",
     "param_rs_last_sync": "2026-08-12T04:09:22Z",
-    "extracted_at": "2026-08-17T16:24:05Z"
+    "extracted_at": "2026-08-18T03:41:31Z"
   },
   "note": "Each weight multiplies the viewer's PREDICTED PROBABILITY of that action (or a predicted continuous value such as dwell seconds); weights do not multiply raw engagement counts. See knowledge/01-scoring.md.",
   "groups": {
@@ -289,12 +289,12 @@
       "MaxSeqLengthScoring": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_scoring",
-        "ref": "home-mixer/params/param.rs:951"
+        "ref": "home-mixer/params/param.rs:958"
       },
       "MaxSeqLengthRetrieval": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_retrieval",
-        "ref": "home-mixer/params/param.rs:957"
+        "ref": "home-mixer/params/param.rs:964"
       },
       "EngagementSignalsMaxPerType": {
         "value": 15,
@@ -306,17 +306,17 @@
       "ExcludeServedTweetIdsDuration": {
         "value": 10,
         "key": "rust_home_mixer_exclude_served_tweet_ids_duration_minutes",
-        "ref": "home-mixer/params/param.rs:1071"
+        "ref": "home-mixer/params/param.rs:1078"
       },
       "ExcludeServedTweetIdsNumber": {
         "value": 100,
         "key": "rust_home_mixer_exclude_served_tweet_ids_number",
-        "ref": "home-mixer/params/param.rs:1077"
+        "ref": "home-mixer/params/param.rs:1084"
       },
       "EnableServedFilterAllRequests": {
         "value": true,
         "key": "rust_home_mixer_enable_served_filter_all_requests",
-        "ref": "home-mixer/params/param.rs:970"
+        "ref": "home-mixer/params/param.rs:977"
       }
     }
   }
