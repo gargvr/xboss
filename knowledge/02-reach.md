@@ -17,7 +17,7 @@ Ranking's own cap is 48 h (`AgeFilter`, `MAX_POST_AGE`). Effective life for disc
 
 Shipped ranking config (`home_direct_packed`, `phoenix/xrex/models/recsys_feature_prep.py:516-724`): hashed post ID, hashed author ID, product surface, post-age bucket, viewer timezone/local hour, and **semantic IDs**: quantized codes of a multimodal embedding (Qwen3-VL) of author name+handle, the text with `t.co` links stripped, images, video frames, link-card title/description, poll choices, quoted post (`phoenix/reference/mm_encoder.py`).
 
-**Not seen:** raw text, like/repost/reply counts (`enable_engagement_counts = False`, `xrecsys.py:589`), follower count, verified/Premium status, post language, "has link"/"has media" flags, bookmarks.
+**Not consumed by the shipped model:** raw text, like/repost/reply counts (`enable_engagement_counts = False`, `xrecsys.py:589`), verified/Premium status, post language, "has link"/"has media" flags, bookmarks. **Follower count, watch this one:** until the Aug 14 release the mixer didn't even send `AuthorInfo.followers` to Phoenix; the Aug 17 commit (`b089ce6`, `home-mixer/models/candidate.rs`) started sending it for originals, together with an author-NSFW bit (`SAFETY_BIT_AUTHOR_NSFW`). The Phoenix feature code is unchanged, so nothing consumes it yet; sending it usually means a model variant is being trained or tested with it. `CHANGELOG.md` will show when that flips.
 
 Consequences: engagement counts are gates (≥1 like for the index; <1,000 views for the cold-start lift), not ranking inputs. Content enters as *meaning*, so a post has to be legibly about something; a bare URL adds nothing, the card title does.
 
@@ -37,6 +37,10 @@ Indexed post = **hashed author ID + semantic IDs** (`recsys_two_tower_model.py:1
 - authors flagged for adult content are dropped from this source for non-followers
 
 Who likes you in the first hours matters more than how many.
+
+## Aug 17 change: topic saturation is being instrumented
+
+`ranking_scorer.rs` (Aug 17) now counts, per viewer pool, how many posts sharing your post's semantic-ID prefix (levels 1-3, i.e. same topic cluster) rank above it, plus the rank gap, and passes `sid_k1..3` / `sid_gap1..3` to the reranker (`models/candidate.rs`). The DPP already penalises near-duplicates by embedding similarity; this is an explicit same-topic count. Same news as everyone, same angle: expect it to cost more, not less.
 
 ## Threads and reposts
 

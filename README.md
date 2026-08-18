@@ -104,7 +104,7 @@ Full parameter set: [`data/params.json`](data/params.json) (189 params), [`data/
 
 1. Score = Σ weight × *that viewer's predicted probability* of each action. Copy-link share 20, reply 5 (20 for mutual follows on originals), quote 5, DM share 5, follow 4, like 0.5; report −234, mute −58.8, not-interested −43.2. Weights multiply probabilities, not counts.
 2. To be recommended to non-followers a post must be an **original**, pass safety filtering, and get **≥1 like**; it leaves the retrieval index at **24 h** regardless. Ranking's cap is 48 h.
-3. The model does **not** see follower count, engagement counts, verified/Premium, raw text, or links. Content enters as semantic IDs from a multimodal embedding.
+3. The shipped model does **not** consume engagement counts, verified/Premium, raw text, or links; content enters as semantic IDs from a multimodal embedding. Follower count: not consumed either, but since the Aug 17 commit the mixer sends it to the model (the sync bot caught that on day one; see `CHANGELOG.md`).
 4. **≤1,000 followers?** One original per request with <1,000 views and <24 h age is lifted to slot ~15, if it is already a candidate.
 5. Only **post 1 of a thread** can leave your follower graph. OON replies and reposts are removed before scoring; quotes are originals.
 6. Your 2nd post in a viewer's pool is ×0.625, 3rd ×0.44 (floor 0.25). Replies/reposts to your own followers are ×0.75.
