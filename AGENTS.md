@@ -29,3 +29,9 @@ heuristics as heuristics; no em dashes.
 
 **Do not:** post on the user's behalf, log in for them, scrape accounts other than the user's own, or store their
 exported data anywhere but where they asked.
+
+**Rate limits and account safety:** X throttles its web endpoints per account (~15-minute windows) and scores
+automation-like behaviour (`bdsm/` upstream). Have the person run `scripts/collect_profile.js` themselves, once, in a
+foreground tab; never loop it, never retry after a rate-limit message for 15-30 minutes, never drive their logged-in
+session with repeated navigations, and never take actions (like/follow/reply/post) through automation. Say this before
+they run anything.

@@ -33,6 +33,10 @@ Tools: `get_weights`, `score_post`, `lint_draft`, `analyze_account`, `cold_start
 
 Paste [`prompts/system_prompt.md`](prompts/system_prompt.md) into a new chat, then paste your exported posts. Same procedure, no tools.
 
+### Rate limits and your account (read before exporting)
+
+X throttles its own web endpoints per account in roughly 15-minute windows and, per the upstream `bdsm/` component, scores automation-like behaviour. `scripts/collect_profile.js` therefore scrolls at a human pace with random pauses, stops at ~40 posts, and performs no actions. Run it **once**, yourself, in a foreground tab. Don't let an AI agent loop it against your logged-in session, and if you see "Rate limit exceeded" or "Something went wrong", wait 15-30 minutes instead of retrying. Reading your own profile is normal use; scripted repetition is what gets throttled.
+
 ## What the account read tells you
 
 `python -m xboss analyze me.json` prints, for example:

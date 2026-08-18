@@ -1,13 +1,21 @@
 /*
  collect_profile.js: export your own X posts + profile facts as JSON, locally.
 
- How to use (takes ~30 seconds):
+ How to use (takes ~60-90 seconds):
    1. Log in to X in your browser and open your profile: https://x.com/<your_handle>
    2. Open DevTools (Cmd/Ctrl+Shift+J), paste this whole file into the Console, press Enter.
-   3. It scrolls your timeline, collects up to ~60 posts, prints JSON, and copies it to your clipboard.
+   3. It scrolls your timeline slowly (human pace), collects up to ~40 posts, prints JSON, and copies it to your clipboard.
    4. Save it as me.json (or paste it to your AI), then:  python -m xboss analyze me.json
 
  Nothing is sent anywhere. It only reads what your browser already shows you.
+
+ RATE LIMITS AND ACCOUNT SAFETY (read this):
+   - X rate-limits its own web endpoints per account in ~15-minute windows and watches for automation-like
+     behaviour. This script therefore scrolls at a human pace with random pauses and stops at ~40 posts.
+   - Run it ONCE per session, yourself, in the foreground tab. Do not loop it, do not run it from an
+     AI agent's browser against your logged-in session, and do not re-run it after a "Rate limit exceeded"
+     or "Something went wrong" message; wait 15-30 minutes.
+   - It performs no actions (no likes, follows, posts). Reading your own profile is normal use.
 */
 (async () => {
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -90,13 +98,21 @@
       });
     });
   };
+  const MAX_POSTS = 40;          // enough for an account read; keeps the request count low
+  const MAX_SCROLLS = 12;
+  const jitter = (lo, hi) => lo + Math.random() * (hi - lo);
+  if (document.hidden) console.warn("Bring this tab to the foreground: background tabs are throttled and the export may stall.");
   window.scrollTo(0, 0);
-  await sleep(600);
-  for (let i = 0; i < 25 && seen.size < 60; i++) {
+  await sleep(jitter(1200, 2000));
+  let stagnant = 0;
+  for (let i = 0; i < MAX_SCROLLS && seen.size < MAX_POSTS; i++) {
+    const before = seen.size;
     grab();
-    window.scrollBy(0, 2000);
-    await sleep(900);
+    window.scrollBy(0, Math.round(jitter(1200, 1800)));
+    await sleep(jitter(1800, 3200));   // human pace; X loads posts in batches on scroll
+    if (seen.size === before) { stagnant++; if (stagnant >= 3) break; } else { stagnant = 0; }
   }
+  await sleep(1200);
   grab();
   const posts = [...seen.values()];
   const pinned = posts.find((p) => p.pinned);
