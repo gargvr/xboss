@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "0d3cdd8",
-    "commit_date": "2026-08-25",
+    "commit": "bc8e5f0",
+    "commit_date": "2026-08-28",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-08-25T16:20:01Z",
-    "extracted_at": "2026-08-26T07:10:19Z"
+    "param_rs_last_sync": "2026-08-28T20:07:44Z",
+    "extracted_at": "2026-08-29T12:42:29Z"
   },
   "params": {
     "PhoenixMaxResults": {
@@ -327,13 +327,21 @@
       "file": "home-mixer/params/param.rs",
       "line": 240
     },
+    "RerankerHeadTag": {
+      "key": "rust_home_mixer_reranker_head_tag",
+      "type": "i64",
+      "value": 0,
+      "raw": "0",
+      "file": "home-mixer/params/param.rs",
+      "line": 246
+    },
     "OonWeightFactor": {
       "key": "rust_home_mixer_oon_weight_factor",
       "type": "f64",
       "value": 0.75,
       "raw": "0.75",
       "file": "home-mixer/params/param.rs",
-      "line": 246
+      "line": 247
     },
     "MultiplierPreOffset": {
       "key": "rust_home_mixer_multiplier_pre_offset",
@@ -341,7 +349,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 252
+      "line": 253
     },
     "EnableOonRescoreForInNetworkRepliesRetweets": {
       "key": "rust_home_mixer_enable_oon_rescore_for_in_network_replies_retweets",
@@ -349,7 +357,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 259
+      "line": 260
     },
     "TopicOonWeightFactor": {
       "key": "rust_home_mixer_topic_oon_weight_factor",
@@ -357,7 +365,7 @@
       "value": 0.5,
       "raw": "0.5",
       "file": "home-mixer/params/param.rs",
-      "line": 265
+      "line": 266
     },
     "NewUserAgeThresholdSecs": {
       "key": "rust_home_mixer_new_user_age_threshold_secs",
@@ -365,7 +373,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 271
+      "line": 272
     },
     "FavoriteWeight": {
       "key": "rust_home_mixer_favorite_weight",
@@ -373,7 +381,7 @@
       "value": 0.5,
       "raw": "0.5",
       "file": "home-mixer/params/param.rs",
-      "line": 307
+      "line": 308
     },
     "ReplyWeight": {
       "key": "rust_home_mixer_reply_weight",
@@ -381,7 +389,7 @@
       "value": 5.0,
       "raw": "5.0",
       "file": "home-mixer/params/param.rs",
-      "line": 308
+      "line": 309
     },
     "BidirectionalFollowReplyWeightBoost": {
       "key": "rust_home_mixer_bidirectional_follow_reply_weight_boost",
@@ -389,7 +397,7 @@
       "value": 15.0,
       "raw": "15.0",
       "file": "home-mixer/params/param.rs",
-      "line": 309
+      "line": 310
     },
     "BidirectionalFollowDwellWeightBoost": {
       "key": "rust_home_mixer_bidirectional_follow_dwell_weight_boost",
@@ -397,7 +405,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 315
+      "line": 316
     },
     "RetweetWeight": {
       "key": "rust_home_mixer_retweet_weight",
@@ -405,7 +413,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 321
+      "line": 322
     },
     "PhotoExpandWeight": {
       "key": "rust_home_mixer_photo_expand_weight",
@@ -413,7 +421,7 @@
       "value": 0.05,
       "raw": "0.05",
       "file": "home-mixer/params/param.rs",
-      "line": 322
+      "line": 323
     },
     "VideoOpenWeight": {
       "key": "rust_home_mixer_video_open_weight",
@@ -421,7 +429,7 @@
       "value": 0.07,
       "raw": "0.07",
       "file": "home-mixer/params/param.rs",
-      "line": 328
+      "line": 329
     },
     "ClickWeight": {
       "key": "rust_home_mixer_click_weight",
@@ -429,7 +437,7 @@
       "value": 0.4,
       "raw": "0.4",
       "file": "home-mixer/params/param.rs",
-      "line": 334
+      "line": 335
     },
     "OpenLinkWeight": {
       "key": "rust_home_mixer_open_link_weight",
@@ -437,7 +445,7 @@
       "value": 0.2,
       "raw": "0.2",
       "file": "home-mixer/params/param.rs",
-      "line": 335
+      "line": 336
     },
     "ProfileClickWeight": {
       "key": "rust_home_mixer_profile_click_weight",
@@ -445,7 +453,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 336
+      "line": 337
     },
     "VqvWeight": {
       "key": "rust_home_mixer_vqv_weight",
@@ -453,7 +461,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 342
+      "line": 343
     },
     "ShareWeight": {
       "key": "rust_home_mixer_share_weight",
@@ -461,7 +469,7 @@
       "value": 2.0,
       "raw": "2.0",
       "file": "home-mixer/params/param.rs",
-      "line": 343
+      "line": 344
     },
     "ShareViaDmWeight": {
       "key": "rust_home_mixer_share_via_dm_weight",
@@ -469,7 +477,7 @@
       "value": 5.0,
       "raw": "5.0",
       "file": "home-mixer/params/param.rs",
-      "line": 344
+      "line": 345
     },
     "ShareViaCopyLinkWeight": {
       "key": "rust_home_mixer_share_via_copy_link_weight",
@@ -477,7 +485,7 @@
       "value": 20.0,
       "raw": "20.0",
       "file": "home-mixer/params/param.rs",
-      "line": 350
+      "line": 351
     },
     "DwellWeight": {
       "key": "rust_home_mixer_dwell_weight",
@@ -485,7 +493,7 @@
       "value": 0.05,
       "raw": "0.05",
       "file": "home-mixer/params/param.rs",
-      "line": 356
+      "line": 357
     },
     "QuoteWeight": {
       "key": "rust_home_mixer_quote_weight",
@@ -493,7 +501,7 @@
       "value": 5.0,
       "raw": "5.0",
       "file": "home-mixer/params/param.rs",
-      "line": 357
+      "line": 358
     },
     "QuotedClickWeight": {
       "key": "rust_home_mixer_quoted_click_weight",
@@ -501,7 +509,7 @@
       "value": 0.05,
       "raw": "0.05",
       "file": "home-mixer/params/param.rs",
-      "line": 358
+      "line": 359
     },
     "QuotedVqvWeight": {
       "key": "rust_home_mixer_quoted_vqv_weight",
@@ -509,7 +517,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 364
+      "line": 365
     },
     "FollowAuthorWeight": {
       "key": "rust_home_mixer_follow_author_weight",
@@ -517,7 +525,7 @@
       "value": 4.0,
       "raw": "4.0",
       "file": "home-mixer/params/param.rs",
-      "line": 370
+      "line": 371
     },
     "PostUnexploredWeight": {
       "key": "rust_home_mixer_post_unexplored_weight",
@@ -525,7 +533,7 @@
       "value": 0.02,
       "raw": "0.02",
       "file": "home-mixer/params/param.rs",
-      "line": 376
+      "line": 377
     },
     "EnableMultiplicativePostUnexplored": {
       "key": "rust_home_mixer_enable_multiplicative_post_unexplored",
@@ -533,7 +541,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 382
+      "line": 383
     },
     "MultiplicativePostUnexploredAlpha": {
       "key": "rust_home_mixer_multiplicative_post_unexplored_alpha",
@@ -541,7 +549,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 388
+      "line": 389
     },
     "PostUnexploredWeightInNetworkOnly": {
       "key": "rust_home_mixer_post_unexplored_weight_in_network_only",
@@ -549,7 +557,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 394
+      "line": 395
     },
     "ContDwellTimeWeight": {
       "key": "rust_home_mixer_cont_dwell_time_weight",
@@ -557,7 +565,7 @@
       "value": 0.004,
       "raw": "0.004",
       "file": "home-mixer/params/param.rs",
-      "line": 400
+      "line": 401
     },
     "ContClickDwellTimeWeight": {
       "key": "rust_home_mixer_cont_click_dwell_time_weight",
@@ -565,7 +573,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 406
+      "line": 407
     },
     "EnableClickDwellLowFavRatePenalty": {
       "key": "rust_home_mixer_enable_click_dwell_low_fav_rate_penalty",
@@ -573,7 +581,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 412
+      "line": 413
     },
     "ClickDwellLowFavRatePenaltyBaseline": {
       "key": "rust_home_mixer_click_dwell_low_fav_rate_penalty_baseline",
@@ -581,7 +589,7 @@
       "value": 0.01,
       "raw": "0.01",
       "file": "home-mixer/params/param.rs",
-      "line": 418
+      "line": 419
     },
     "ClickDwellLowFavRatePenaltyAlpha": {
       "key": "rust_home_mixer_click_dwell_low_fav_rate_penalty_alpha",
@@ -589,7 +597,7 @@
       "value": 0.5,
       "raw": "0.5",
       "file": "home-mixer/params/param.rs",
-      "line": 424
+      "line": 425
     },
     "ClickDwellLowFavRatePenaltyFloor": {
       "key": "rust_home_mixer_click_dwell_low_fav_rate_penalty_floor",
@@ -597,7 +605,7 @@
       "value": 0.01,
       "raw": "0.01",
       "file": "home-mixer/params/param.rs",
-      "line": 430
+      "line": 431
     },
     "ClickDwellLowFavRatePenaltyCap": {
       "key": "rust_home_mixer_click_dwell_low_fav_rate_penalty_cap",
@@ -605,7 +613,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 436
+      "line": 437
     },
     "ContActiveSecs5mResidualNormWeight": {
       "key": "rust_home_mixer_cont_active_secs_5m_residual_norm_weight",
@@ -613,7 +621,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 442
+      "line": 443
     },
     "NotInterestedWeight": {
       "key": "rust_home_mixer_not_interested_weight",
@@ -621,7 +629,7 @@
       "value": -43.2,
       "raw": "-43.2",
       "file": "home-mixer/params/param.rs",
-      "line": 449
+      "line": 450
     },
     "BlockAuthorWeight": {
       "key": "rust_home_mixer_block_author_weight",
@@ -629,7 +637,7 @@
       "value": -31.2,
       "raw": "-31.2",
       "file": "home-mixer/params/param.rs",
-      "line": 455
+      "line": 456
     },
     "MuteAuthorWeight": {
       "key": "rust_home_mixer_mute_author_weight",
@@ -637,7 +645,7 @@
       "value": -58.8,
       "raw": "-58.8",
       "file": "home-mixer/params/param.rs",
-      "line": 461
+      "line": 462
     },
     "ReportWeight": {
       "key": "rust_home_mixer_report_weight",
@@ -645,7 +653,7 @@
       "value": -234.0,
       "raw": "-234.0",
       "file": "home-mixer/params/param.rs",
-      "line": 467
+      "line": 468
     },
     "NotDwelledWeight": {
       "key": "rust_home_mixer_not_dwelled_weight",
@@ -653,7 +661,7 @@
       "value": -0.02,
       "raw": "-0.02",
       "file": "home-mixer/params/param.rs",
-      "line": 468
+      "line": 469
     },
     "ValueModelMode": {
       "key": "rust_home_mixer_value_model_mode",
@@ -661,7 +669,7 @@
       "value": "weighted",
       "raw": "\"weighted\"",
       "file": "home-mixer/params/param.rs",
-      "line": 475
+      "line": 476
     },
     "DwellRegretTemperature": {
       "key": "rust_home_mixer_dwell_regret_temperature",
@@ -669,7 +677,7 @@
       "value": 10.0,
       "raw": "10.0",
       "file": "home-mixer/params/param.rs",
-      "line": 481
+      "line": 482
     },
     "DwellRegretDwellFloor": {
       "key": "rust_home_mixer_dwell_regret_dwell_floor",
@@ -677,7 +685,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 487
+      "line": 488
     },
     "DwellRegretAlphaFavorite": {
       "key": "rust_home_mixer_dwell_regret_alpha_favorite",
@@ -685,7 +693,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 493
+      "line": 494
     },
     "DwellRegretAlphaReply": {
       "key": "rust_home_mixer_dwell_regret_alpha_reply",
@@ -693,7 +701,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 499
+      "line": 500
     },
     "DwellRegretAlphaRetweet": {
       "key": "rust_home_mixer_dwell_regret_alpha_retweet",
@@ -701,7 +709,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 505
+      "line": 506
     },
     "DwellRegretAlphaQuote": {
       "key": "rust_home_mixer_dwell_regret_alpha_quote",
@@ -709,7 +717,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 511
+      "line": 512
     },
     "DwellRegretAlphaShare": {
       "key": "rust_home_mixer_dwell_regret_alpha_share",
@@ -717,7 +725,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 517
+      "line": 518
     },
     "DwellRegretAlphaShareViaDm": {
       "key": "rust_home_mixer_dwell_regret_alpha_share_via_dm",
@@ -725,7 +733,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 523
+      "line": 524
     },
     "DwellRegretAlphaShareViaCopyLink": {
       "key": "rust_home_mixer_dwell_regret_alpha_share_via_copy_link",
@@ -733,7 +741,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 529
+      "line": 530
     },
     "DwellRegretNegNotInterested": {
       "key": "rust_home_mixer_dwell_regret_neg_not_interested",
@@ -741,7 +749,7 @@
       "value": -10000.0,
       "raw": "-10000.0",
       "file": "home-mixer/params/param.rs",
-      "line": 535
+      "line": 536
     },
     "DwellRegretNegBlockAuthor": {
       "key": "rust_home_mixer_dwell_regret_neg_block_author",
@@ -749,7 +757,7 @@
       "value": -8000.0,
       "raw": "-8000.0",
       "file": "home-mixer/params/param.rs",
-      "line": 541
+      "line": 542
     },
     "DwellRegretNegMuteAuthor": {
       "key": "rust_home_mixer_dwell_regret_neg_mute_author",
@@ -757,7 +765,7 @@
       "value": -15000.0,
       "raw": "-15000.0",
       "file": "home-mixer/params/param.rs",
-      "line": 547
+      "line": 548
     },
     "DwellRegretNegReport": {
       "key": "rust_home_mixer_dwell_regret_neg_report",
@@ -765,7 +773,7 @@
       "value": -60000.0,
       "raw": "-60000.0",
       "file": "home-mixer/params/param.rs",
-      "line": 553
+      "line": 554
     },
     "DwellRegretGateWeights": {
       "key": "rust_home_mixer_dwell_regret_gate_weights",
@@ -773,7 +781,7 @@
       "value": "seq_len:0.530298,n_fav:-0.082139,n_reply:0.485541,n_rt_quote:0.056561,n_vqv:-0.072778,n_click:-0.176675,n_bm_share:-0.167574,n_profile_follow:-0.221285,n_photo:-0.106004,n_negfb:0.031839,n_7d:-0.075799,n_1d:-0.241730,active_days:0.047017,active_days_7d:-0.126896,days_since_last:-0.034238,span_days:-0.052186,followers:-0.066642,followings:0.064140,account_age_years:-0.045455",
       "raw": "\"seq_len:0.530298,n_fav:-0.082139,n_reply:0.485541,n_rt_quote:0.056561,n_vqv:-0.072778,n_click:-0.176675,n_bm_share:-0.167574,n_profile_follow:-0.221285,n_photo:-0.106004,n_negfb:0.031839,n_7d:-0.075799,n_1d:-0.241730,active_days:0.047017,active_days_7d:-0.126896,days_since_last:-0.034238,span_days:-0.052186,followers:-0.066642,followings:0.064140,account_age_years:-0.045455\"",
       "file": "home-mixer/params/param.rs",
-      "line": 559
+      "line": 560
     },
     "DwellRegretGateBias": {
       "key": "rust_home_mixer_dwell_regret_gate_bias",
@@ -781,7 +789,7 @@
       "value": 1.033918,
       "raw": "1.033918",
       "file": "home-mixer/params/param.rs",
-      "line": 565
+      "line": 566
     },
     "DwellRegretGateThreshold": {
       "key": "rust_home_mixer_dwell_regret_gate_threshold",
@@ -789,7 +797,7 @@
       "value": -0.634264,
       "raw": "-0.634264",
       "file": "home-mixer/params/param.rs",
-      "line": 571
+      "line": 572
     },
     "DwellRegretGateHysteresisBand": {
       "key": "rust_home_mixer_dwell_regret_gate_hysteresis_band",
@@ -797,7 +805,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 577
+      "line": 578
     },
     "EnableFollowingRepliedUsersFacepile": {
       "key": "rust_home_mixer_enable_following_replied_users_facepile",
@@ -805,7 +813,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 584
+      "line": 585
     },
     "FollowingRepliedUsersFacepileMinUsers": {
       "key": "rust_home_mixer_following_replied_users_facepile_min_users",
@@ -813,7 +821,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 590
+      "line": 591
     },
     "FollowingRepliedUsersFacepileMaxPosts": {
       "key": "rust_home_mixer_following_replied_users_facepile_max_posts",
@@ -821,7 +829,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 596
+      "line": 597
     },
     "EnableVMRanker": {
       "key": "rust_home_mixer_enable_vm_ranker",
@@ -829,7 +837,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 603
+      "line": 604
     },
     "VMRankerEnableFallback": {
       "key": "rust_home_mixer_vm_ranker_enable_fallback",
@@ -837,7 +845,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 609
+      "line": 610
     },
     "VMRankerClusterId": {
       "key": "rust_home_mixer_vm_ranker_cluster_id",
@@ -845,7 +853,7 @@
       "value": "Experiment3",
       "raw": "\"Experiment3\"",
       "file": "home-mixer/params/param.rs",
-      "line": 615
+      "line": 616
     },
     "VMRankerDppTheta": {
       "key": "rust_home_mixer_vm_ranker_dpp_theta",
@@ -853,7 +861,7 @@
       "value": 0.65,
       "raw": "0.65",
       "file": "home-mixer/params/param.rs",
-      "line": 621
+      "line": 622
     },
     "VMRankerDppMaxSelectedRank": {
       "key": "rust_home_mixer_vm_ranker_dpp_max_selected_rank",
@@ -861,7 +869,7 @@
       "value": 150,
       "raw": "150",
       "file": "home-mixer/params/param.rs",
-      "line": 627
+      "line": 628
     },
     "ColdStartImpressionThreshold": {
       "key": "rust_home_mixer_cold_start_impression_threshold",
@@ -869,7 +877,7 @@
       "value": 1000,
       "raw": "1000",
       "file": "home-mixer/params/param.rs",
-      "line": 633
+      "line": 634
     },
     "ColdStartSlotMin": {
       "key": "rust_home_mixer_cold_start_slot_min",
@@ -877,7 +885,7 @@
       "value": 15,
       "raw": "15",
       "file": "home-mixer/params/param.rs",
-      "line": 639
+      "line": 640
     },
     "ColdStartSlotMax": {
       "key": "rust_home_mixer_cold_start_slot_max",
@@ -885,7 +893,7 @@
       "value": 16,
       "raw": "16",
       "file": "home-mixer/params/param.rs",
-      "line": 645
+      "line": 646
     },
     "ColdStartFollowerCap": {
       "key": "rust_home_mixer_cold_start_follower_cap",
@@ -893,7 +901,7 @@
       "value": 1000,
       "raw": "1000",
       "file": "home-mixer/params/param.rs",
-      "line": 651
+      "line": 652
     },
     "ColdStartMaxPostAgeSecs": {
       "key": "rust_home_mixer_cold_start_max_post_age_secs",
@@ -901,7 +909,7 @@
       "value": 86400,
       "raw": "86400",
       "file": "home-mixer/params/param.rs",
-      "line": 657
+      "line": 658
     },
     "LowImpressionsMaxPositionRatio": {
       "key": "rust_home_mixer_low_impressions_max_boost_position_ratio",
@@ -909,7 +917,7 @@
       "value": 0.85,
       "raw": "0.85",
       "file": "home-mixer/params/param.rs",
-      "line": 664
+      "line": 665
     },
     "EnableViewerColdStart": {
       "key": "rust_home_mixer_enable_viewer_cold_start_boost",
@@ -917,7 +925,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 671
+      "line": 672
     },
     "EnableColdStartThompsonSampling": {
       "key": "rust_home_mixer_enable_cold_start_thompson_sampling",
@@ -925,7 +933,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 677
+      "line": 678
     },
     "ColdStartBetaAlpha0": {
       "key": "rust_home_mixer_cold_start_beta_alpha0",
@@ -933,7 +941,7 @@
       "value": 0.75,
       "raw": "0.75",
       "file": "home-mixer/params/param.rs",
-      "line": 683
+      "line": 684
     },
     "ColdStartBetaBeta0": {
       "key": "rust_home_mixer_cold_start_beta_beta0",
@@ -941,7 +949,7 @@
       "value": 49.25,
       "raw": "49.25",
       "file": "home-mixer/params/param.rs",
-      "line": 689
+      "line": 690
     },
     "ColdStartTsTopK": {
       "key": "rust_home_mixer_cold_start_ts_top_k",
@@ -949,7 +957,7 @@
       "value": 2,
       "raw": "2",
       "file": "home-mixer/params/param.rs",
-      "line": 695
+      "line": 696
     },
     "ColdStartImpressionScale": {
       "key": "rust_home_mixer_cold_start_impression_scale",
@@ -957,7 +965,7 @@
       "value": 1.0,
       "raw": "1.0",
       "file": "home-mixer/params/param.rs",
-      "line": 701
+      "line": 702
     },
     "ColdStartTrackedIds": {
       "key": "rust_home_mixer_cold_start_tracked_ids",
@@ -965,7 +973,7 @@
       "value": "",
       "raw": "\"\"",
       "file": "home-mixer/params/param.rs",
-      "line": 707
+      "line": 708
     },
     "EnableCachedPosts": {
       "key": "rust_home_mixer_enable_cached_posts",
@@ -973,7 +981,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 714
+      "line": 715
     },
     "MaxPostsToCache": {
       "key": "rust_home_mixer_max_posts_to_cache",
@@ -981,7 +989,7 @@
       "value": 750,
       "raw": "750",
       "file": "home-mixer/params/param.rs",
-      "line": 720
+      "line": 721
     },
     "MinVideoDurationMs": {
       "key": "rust_home_mixer_min_video_duration_ms",
@@ -989,7 +997,7 @@
       "value": 10000,
       "raw": "10_000",
       "file": "home-mixer/params/param.rs",
-      "line": 726
+      "line": 727
     },
     "EnableQuotedVqvDurationCheck": {
       "key": "rust_home_mixer_enable_quoted_vqv_duration_check",
@@ -997,7 +1005,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 733
+      "line": 734
     },
     "EnableContextFeatures": {
       "key": "rust_home_mixer_enable_context_features",
@@ -1005,7 +1013,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 740
+      "line": 741
     },
     "EnableIpFeature": {
       "key": "rust_home_mixer_enable_geo_features",
@@ -1013,7 +1021,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 747
+      "line": 748
     },
     "EnableExplicitEngagementSignals": {
       "key": "rust_home_mixer_enable_explicit_engagement_signals",
@@ -1021,7 +1029,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 754
+      "line": 755
     },
     "EnableImplicitEngagementSignals": {
       "key": "rust_home_mixer_enable_implicit_engagement_signals",
@@ -1029,7 +1037,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 760
+      "line": 761
     },
     "EngagementSignalsMaxPerType": {
       "key": "rust_home_mixer_engagement_signals_max_per_type",
@@ -1037,7 +1045,7 @@
       "value": 15,
       "raw": "15",
       "file": "home-mixer/params/param.rs",
-      "line": 766
+      "line": 767
     },
     "EnableUserInstalledAppsHydration": {
       "key": "rust_home_mixer_enable_user_installed_apps_hydration",
@@ -1045,7 +1053,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 773
+      "line": 774
     },
     "EnableUserInstalledAppsV2": {
       "key": "rust_home_mixer_enable_user_installed_apps_v2",
@@ -1053,7 +1061,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 780
+      "line": 781
     },
     "EnableInferredGenderHydration": {
       "key": "rust_home_mixer_enable_inferred_gender_hydration",
@@ -1061,7 +1069,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 787
+      "line": 788
     },
     "EnableRetrievalSequenceHydration": {
       "key": "rust_home_mixer_enable_retrieval_sequence_hydration",
@@ -1069,7 +1077,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 794
+      "line": 795
     },
     "EnableScoringSequenceHydration": {
       "key": "rust_home_mixer_enable_scoring_sequence_hydration",
@@ -1077,7 +1085,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 801
+      "line": 802
     },
     "EnableMutualFollowJaccardHydration": {
       "key": "rust_home_mixer_enable_mutual_follow_jaccard_hydration",
@@ -1085,7 +1093,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 808
+      "line": 809
     },
     "EnableBidirectionalFollowHydration": {
       "key": "rust_home_mixer_enable_bidirectional_follow_hydration",
@@ -1093,7 +1101,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 815
+      "line": 816
     },
     "EnableAllAuthorFollowHydration": {
       "key": "rust_home_mixer_enable_all_author_follow_hydration",
@@ -1101,7 +1109,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 821
+      "line": 822
     },
     "EnableNewUserMinEngagementFilter": {
       "key": "rust_home_mixer_enable_new_user_min_engagement_filter",
@@ -1109,7 +1117,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 827
+      "line": 828
     },
     "NewUserMinEngagementFilterMetric": {
       "key": "rust_home_mixer_new_user_min_engagement_filter_metric",
@@ -1117,7 +1125,7 @@
       "value": "fav",
       "raw": "\"fav\"",
       "file": "home-mixer/params/param.rs",
-      "line": 833
+      "line": 834
     },
     "NewUserMinEngagementFilterUseRatio": {
       "key": "rust_home_mixer_new_user_min_engagement_filter_use_ratio",
@@ -1125,7 +1133,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 839
+      "line": 840
     },
     "NewUserMinEngagementThreshold": {
       "key": "rust_home_mixer_new_user_min_engagement_threshold",
@@ -1133,7 +1141,7 @@
       "value": 0.0,
       "raw": "0.0",
       "file": "home-mixer/params/param.rs",
-      "line": 845
+      "line": 846
     },
     "NewUserMinEngagementFilterMaxAccountAgeSecs": {
       "key": "rust_home_mixer_new_user_min_engagement_filter_max_account_age_secs",
@@ -1141,7 +1149,7 @@
       "value": 1800,
       "raw": "1800",
       "file": "home-mixer/params/param.rs",
-      "line": 851
+      "line": 852
     },
     "NewUserMinEngagementFilterMaxResurrectionAgeSecs": {
       "key": "rust_home_mixer_new_user_min_engagement_filter_max_resurrection_age_secs",
@@ -1149,7 +1157,7 @@
       "value": 1800,
       "raw": "1800",
       "file": "home-mixer/params/param.rs",
-      "line": 857
+      "line": 858
     },
     "EnableEngagementCountsHydration": {
       "key": "rust_home_mixer_enable_engagement_counts_hydration",
@@ -1157,7 +1165,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 863
+      "line": 864
     },
     "EnableSemanticIdHydration": {
       "key": "rust_home_mixer_enable_semantic_id_hydration",
@@ -1165,7 +1173,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 869
+      "line": 870
     },
     "SidServerEndpoint": {
       "key": "rust_home_mixer_sid_server_endpoint",
@@ -1173,7 +1181,7 @@
       "value": "xds://xai-recsys-sid-v8-root.prod.recsys-infra:grpc",
       "raw": "\"xds://xai-recsys-sid-v8-root.prod.recsys-infra:grpc\"",
       "file": "home-mixer/params/param.rs",
-      "line": 875
+      "line": 876
     },
     "UseEngagementCounterViewCountForImpressionBoost": {
       "key": "rust_home_mixer_use_engagement_counter_view_count_for_impression_boost",
@@ -1181,7 +1189,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 881
+      "line": 882
     },
     "EnableAdsSource": {
       "key": "rust_home_mixer_enable_ads_source",
@@ -1189,7 +1197,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 887
+      "line": 888
     },
     "EnableAdsInjectionLogging": {
       "key": "rust_home_mixer_enable_ads_injection_logging",
@@ -1197,7 +1205,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 894
+      "line": 895
     },
     "AdsBlenderType": {
       "key": "rust_home_mixer_ads_blender",
@@ -1205,7 +1213,7 @@
       "value": "partition_organic_low_risk",
       "raw": "\"partition_organic_low_risk\"",
       "file": "home-mixer/params/param.rs",
-      "line": 901
+      "line": 902
     },
     "EnableAdsBrandSafetyVerdictV2": {
       "key": "rust_home_mixer_ads_bs_v2_exp_enabled",
@@ -1213,7 +1221,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 908
+      "line": 909
     },
     "AdsTimeGapTSec": {
       "key": "rust_home_mixer_ads_time_gap_t_sec",
@@ -1221,7 +1229,7 @@
       "value": 4.0,
       "raw": "4.0",
       "file": "home-mixer/params/param.rs",
-      "line": 914
+      "line": 915
     },
     "AdsTimeGapClampLo": {
       "key": "rust_home_mixer_ads_time_gap_clamp_lo",
@@ -1229,7 +1237,7 @@
       "value": 0.5,
       "raw": "0.5",
       "file": "home-mixer/params/param.rs",
-      "line": 920
+      "line": 921
     },
     "AdsTimeGapClampHi": {
       "key": "rust_home_mixer_ads_time_gap_clamp_hi",
@@ -1237,7 +1245,7 @@
       "value": 2.0,
       "raw": "2.0",
       "file": "home-mixer/params/param.rs",
-      "line": 926
+      "line": 927
     },
     "AdsTimeGapMinOrganicGap": {
       "key": "rust_home_mixer_ads_time_gap_min_organic_gap",
@@ -1245,7 +1253,7 @@
       "value": 3,
       "raw": "3",
       "file": "home-mixer/params/param.rs",
-      "line": 932
+      "line": 933
     },
     "UseXdsForUas": {
       "key": "rust_home_mixer_use_xds_for_uas",
@@ -1253,7 +1261,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 938
+      "line": 939
     },
     "UasSourceDataType": {
       "key": "rust_home_mixer_uas_source_data_type",
@@ -1261,7 +1269,7 @@
       "value": "NEW_UUA_ARROW",
       "raw": "\"NEW_UUA_ARROW\"",
       "file": "home-mixer/params/param.rs",
-      "line": 939
+      "line": 940
     },
     "MaxSeqLengthScoring": {
       "key": "rust_home_mixer_max_seq_length_scoring",
@@ -1269,7 +1277,7 @@
       "value": 1024,
       "raw": "1024",
       "file": "home-mixer/params/param.rs",
-      "line": 945
+      "line": 946
     },
     "MaxSeqLengthRetrieval": {
       "key": "rust_home_mixer_max_seq_length_retrieval",
@@ -1277,7 +1285,7 @@
       "value": 1024,
       "raw": "1024",
       "file": "home-mixer/params/param.rs",
-      "line": 951
+      "line": 952
     },
     "EnableAdAdjacentServedFilter": {
       "key": "rust_home_mixer_enable_ad_adjacent_served_filter",
@@ -1285,7 +1293,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 958
+      "line": 959
     },
     "EnableServedFilterAllRequests": {
       "key": "rust_home_mixer_enable_served_filter_all_requests",
@@ -1293,7 +1301,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 964
+      "line": 965
     },
     "EnableInventoryHoldout": {
       "key": "rust_home_mixer_enable_inventory_holdout",
@@ -1301,7 +1309,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 971
+      "line": 972
     },
     "InventoryHoldoutOriginalsPercent": {
       "key": "rust_home_mixer_inventory_holdout_originals_percent",
@@ -1309,7 +1317,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 977
+      "line": 978
     },
     "InventoryHoldoutRepliesPercent": {
       "key": "rust_home_mixer_inventory_holdout_replies_percent",
@@ -1317,7 +1325,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 983
+      "line": 984
     },
     "InventoryHoldoutRetweetsPercent": {
       "key": "rust_home_mixer_inventory_holdout_retweets_percent",
@@ -1325,7 +1333,7 @@
       "value": 0,
       "raw": "0",
       "file": "home-mixer/params/param.rs",
-      "line": 989
+      "line": 990
     },
     "EnableEntryIdRandomHash": {
       "key": "rust_home_mixer_enable_entry_id_random_hash",
@@ -1333,7 +1341,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 996
+      "line": 997
     },
     "EnableTopicFeedbackContext": {
       "key": "rust_home_mixer_enable_topic_feedback_context",
@@ -1341,7 +1349,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1003
+      "line": 1004
     },
     "EnableAiTrendFeedbackContext": {
       "key": "rust_home_mixer_enable_ai_trend_feedback_context",
@@ -1349,7 +1357,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1010
+      "line": 1011
     },
     "EnablePhoenixRequestCacheSideEffect": {
       "key": "rust_home_mixer_enable_phoenix_request_cache_side_effect",
@@ -1357,7 +1365,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1017
+      "line": 1018
     },
     "PhoenixRequestCacheSideEffectTtlSeconds": {
       "key": "rust_home_mixer_phoenix_request_cache_side_effect_ttl_seconds",
@@ -1365,7 +1373,7 @@
       "value": 10800,
       "raw": "10800",
       "file": "home-mixer/params/param.rs",
-      "line": 1023
+      "line": 1024
     },
     "EnableUrtMigrationComponents": {
       "key": "rust_home_mixer_enable_urt_migration_components",
@@ -1373,7 +1381,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1030
+      "line": 1031
     },
     "EnableAuthorServedMetricsExperimentBucket": {
       "key": "rust_home_mixer_enable_author_served_metrics_experiment_bucket",
@@ -1381,7 +1389,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1037
+      "line": 1038
     },
     "AuthorServedMetricsAuthorIds": {
       "key": "rust_home_mixer_author_served_metrics_author_ids",
@@ -1389,7 +1397,7 @@
       "value": [],
       "raw": "vec![]",
       "file": "home-mixer/params/param.rs",
-      "line": 1043
+      "line": 1044
     },
     "EnablePublishSeenIdsToKafka": {
       "key": "rust_home_mixer_enable_publish_seen_ids_kafka",
@@ -1397,7 +1405,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1050
+      "line": 1051
     },
     "EnableWhoToFollowModule": {
       "key": "rust_home_mixer_enable_who_to_follow_module",
@@ -1405,7 +1413,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1057
+      "line": 1058
     },
     "WhoToFollowFatigueHours": {
       "key": "rust_home_mixer_who_to_follow_fatigue_hours",
@@ -1413,7 +1421,7 @@
       "value": 30,
       "raw": "30",
       "file": "home-mixer/params/param.rs",
-      "line": 1063
+      "line": 1064
     },
     "EnablePrompts": {
       "key": "rust_home_mixer_enable_prompts",
@@ -1421,7 +1429,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1070
+      "line": 1071
     },
     "ExcludeServedTweetIdsDuration": {
       "key": "rust_home_mixer_exclude_served_tweet_ids_duration_minutes",
@@ -1429,7 +1437,7 @@
       "value": 10,
       "raw": "10",
       "file": "home-mixer/params/param.rs",
-      "line": 1072
+      "line": 1073
     },
     "ExcludeServedTweetIdsNumber": {
       "key": "rust_home_mixer_exclude_served_tweet_ids_number",
@@ -1437,7 +1445,7 @@
       "value": 100,
       "raw": "100",
       "file": "home-mixer/params/param.rs",
-      "line": 1078
+      "line": 1079
     },
     "EnableJetfuelFrames": {
       "key": "rust_home_mixer_enable_jetfuel_frames",
@@ -1445,7 +1453,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1085
+      "line": 1086
     },
     "EnableJetfuelFrameSoccer": {
       "key": "rust_home_mixer_jetfuel_frame_soccer_enabled",
@@ -1453,7 +1461,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1091
+      "line": 1092
     },
     "EnableJetfuelFrameNfl": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_enabled",
@@ -1461,7 +1469,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1097
+      "line": 1098
     },
     "EnableJetfuelFrameMlbCarousel": {
       "key": "rust_home_mixer_jetfuel_frame_mlb_carousel_enabled",
@@ -1469,7 +1477,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1103
+      "line": 1104
     },
     "EnableJetfuelFrameNflTimelinePinned": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_timeline_pinned_enabled",
@@ -1477,7 +1485,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1109
+      "line": 1110
     },
     "EnableJetfuelFrameNflTimelineRotation": {
       "key": "rust_home_mixer_jetfuel_frame_nfl_timeline_rotation_enabled",
@@ -1485,7 +1493,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1115
+      "line": 1116
     },
     "EnableFeedSurvey": {
       "key": "rust_home_mixer_enable_feed_survey",
@@ -1493,7 +1501,7 @@
       "value": false,
       "raw": "false",
       "file": "home-mixer/params/param.rs",
-      "line": 1122
+      "line": 1123
     },
     "FeedSurveyFatigueHours": {
       "key": "rust_home_mixer_feed_survey_fatigue_hours",
@@ -1501,7 +1509,7 @@
       "value": 24,
       "raw": "24",
       "file": "home-mixer/params/param.rs",
-      "line": 1128
+      "line": 1129
     },
     "EnableXaiVfClient": {
       "key": "rust_home_mixer_enable_xai_vf_client",
@@ -1509,7 +1517,7 @@
       "value": true,
       "raw": "true",
       "file": "home-mixer/params/param.rs",
-      "line": 1135
+      "line": 1136
     },
     "PhoenixScoresResultSize": {
       "key": "rust_home_mixer_phoenix_scores_result_size",
@@ -1517,7 +1525,7 @@
       "value": 2800,
       "raw": "2800",
       "file": "home-mixer/params/param.rs",
-      "line": 1142
+      "line": 1143
     }
   }
 }
