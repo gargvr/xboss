@@ -1,4 +1,4 @@
-## 2026-08-29 · upstream bc8e5f0 (2026-08-28) · param.rs sync 2026-08-28T20:07:44Z
+## 2026-09-01 · upstream 6384ca7 (2026-09-01) · param.rs sync 2026-08-31T16:17:17Z
 
-- **param added** `RerankerHeadTag` = `0`
+- **param added** `EnablePhoenixScoreStatsExperimentBucket` = `False`
 
