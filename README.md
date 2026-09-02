@@ -62,7 +62,7 @@ cold-start window (≤1000 followers) yes      Under the Hood available     not 
 ## The weights (auto-synced)
 
 <!-- weights:start -->
-_Mirrored from upstream commit `6384ca7` (2026-09-01); `param.rs` header says last production sync **2026-08-31T16:17:17Z**; extracted 2026-09-01. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
+_Mirrored from upstream commit `7ba7768` (2026-09-01); `param.rs` header says last production sync **2026-09-01T16:42:25Z**; extracted 2026-09-02. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
 
 | action | param | weight | where |
 |---|---|---|---|
