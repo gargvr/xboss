@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "7ba7768",
-    "commit_date": "2026-09-01",
+    "commit": "85ac72a",
+    "commit_date": "2026-09-02",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-09-01T16:42:25Z",
-    "extracted_at": "2026-09-02T11:21:40Z"
+    "param_rs_last_sync": "2026-09-02T16:03:45Z",
+    "extracted_at": "2026-09-03T11:17:57Z"
   },
   "params": {
     "PhoenixMaxResults": {
@@ -178,8 +178,8 @@
     "PhoenixRetrievalAggregationType": {
       "key": "rust_home_mixer_phoenix_retrieval_aggregation_type",
       "type": "String",
-      "value": "DENSE_WITH_SHORT_DWELL",
-      "raw": "\"DENSE_WITH_SHORT_DWELL\"",
+      "value": "DENSE_WITH_LONG_DWELL",
+      "raw": "\"DENSE_WITH_LONG_DWELL\"",
       "file": "home-mixer/params/param.rs",
       "line": 133
     },

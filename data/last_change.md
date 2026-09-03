@@ -1,4 +1,4 @@
-## 2026-09-02 · upstream 7ba7768 (2026-09-01) · param.rs sync 2026-09-01T16:42:25Z
+## 2026-09-03 · upstream 85ac72a (2026-09-02) · param.rs sync 2026-09-02T16:03:45Z
 
-- **param** `AdsBlenderType`: `'partition_organic_low_risk'` → `'multi_risk'`
+- **param** `PhoenixRetrievalAggregationType`: `'DENSE_WITH_SHORT_DWELL'` → `'DENSE_WITH_LONG_DWELL'`
 
