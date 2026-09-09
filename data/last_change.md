@@ -1,4 +1,6 @@
-## 2026-09-04 · upstream 9b0dc31 (2026-09-04) · param.rs sync 2026-09-03T16:23:24Z
+## 2026-09-09 · upstream 49815da (2026-09-08) · param.rs sync 2026-09-08T16:24:06Z
 
-- **param added** `PhoenixExperimentOverrides` = `''`
+- **param** `PhoenixRetrievalMOEInferenceClusterId`: `'Experiment1Fou'` → `'Experiment2Memy04'`
+- **param added** `WeightPerturbationSalt` = `''`
+- **param added** `WeightPerturbationSigma` = `0.0`
 
