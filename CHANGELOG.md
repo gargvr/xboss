@@ -2,6 +2,10 @@
 
 Every change to X's mirrored production parameters (home-mixer/params/param.rs and friends), as detected by scripts/sync.py. Newest first.
 
+## 2026-09-15 · upstream 2d4a03c (2026-09-15) · param.rs sync 2026-09-14T16:22:15Z
+
+- **param added** `EnableResponseDiversityStatsExperimentBucket` = `False`
+
 ## 2026-09-09 · upstream 49815da (2026-09-08) · param.rs sync 2026-09-08T16:24:06Z
 
 - **param** `PhoenixRetrievalMOEInferenceClusterId`: `'Experiment1Fou'` → `'Experiment2Memy04'`

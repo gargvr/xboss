@@ -1,6 +1,4 @@
-## 2026-09-09 · upstream 49815da (2026-09-08) · param.rs sync 2026-09-08T16:24:06Z
+## 2026-09-15 · upstream 2d4a03c (2026-09-15) · param.rs sync 2026-09-14T16:22:15Z
 
-- **param** `PhoenixRetrievalMOEInferenceClusterId`: `'Experiment1Fou'` → `'Experiment2Memy04'`
-- **param added** `WeightPerturbationSalt` = `''`
-- **param added** `WeightPerturbationSigma` = `0.0`
+- **param added** `EnableResponseDiversityStatsExperimentBucket` = `False`
 

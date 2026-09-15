@@ -62,38 +62,38 @@ cold-start window (≤1000 followers) yes      Under the Hood available     not 
 ## The weights (auto-synced)
 
 <!-- weights:start -->
-_Mirrored from upstream commit `49815da` (2026-09-08); `param.rs` header says last production sync **2026-09-08T16:24:06Z**; extracted 2026-09-09. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
+_Mirrored from upstream commit `2d4a03c` (2026-09-15); `param.rs` header says last production sync **2026-09-14T16:22:15Z**; extracted 2026-09-15. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
 
 | action | param | weight | where |
 |---|---|---|---|
-| share via copy link | `ShareViaCopyLinkWeight` | **20** | `home-mixer/params/param.rs:357` |
-| reply | `ReplyWeight` | **5** | `home-mixer/params/param.rs:315` |
-| quote | `QuoteWeight` | **5** | `home-mixer/params/param.rs:364` |
-| share via DM | `ShareViaDmWeight` | **5** | `home-mixer/params/param.rs:351` |
-| follow author | `FollowAuthorWeight` | **4** | `home-mixer/params/param.rs:377` |
-| share | `ShareWeight` | **2** | `home-mixer/params/param.rs:350` |
-| repost | `RetweetWeight` | **1** | `home-mixer/params/param.rs:328` |
-| like | `FavoriteWeight` | **0.5** | `home-mixer/params/param.rs:314` |
-| click (open post) | `ClickWeight` | **0.4** | `home-mixer/params/param.rs:341` |
-| open link | `OpenLinkWeight` | **0.2** | `home-mixer/params/param.rs:342` |
-| video quality view (>10 s, viewer <10k followers) | `VqvWeight` | **0** | `home-mixer/params/param.rs:349` |
-| photo expand | `PhotoExpandWeight` | **0.05** | `home-mixer/params/param.rs:329` |
-| video open | `VideoOpenWeight` | **0.07** | `home-mixer/params/param.rs:335` |
-| quoted click | `QuotedClickWeight` | **0.05** | `home-mixer/params/param.rs:365` |
-| quoted video quality view | `QuotedVqvWeight` | **0** | `home-mixer/params/param.rs:371` |
-| profile click | `ProfileClickWeight` | **0** | `home-mixer/params/param.rs:343` |
-| dwell (binary) | `DwellWeight` | **0.05** | `home-mixer/params/param.rs:363` |
-| dwell time (per predicted second) | `ContDwellTimeWeight` | **0.004** | `home-mixer/params/param.rs:407` |
-| click dwell time (per second) | `ContClickDwellTimeWeight` | **0** | `home-mixer/params/param.rs:413` |
-| active secs residual | `ContActiveSecs5mResidualNormWeight` | **0** | `home-mixer/params/param.rs:449` |
-| post unexplored (in-network only) | `PostUnexploredWeight` | **0.02** | `home-mixer/params/param.rs:383` |
-| reply boost when author and viewer follow each other (originals only) | `BidirectionalFollowReplyWeightBoost` | **15** | `home-mixer/params/param.rs:316` |
-| dwell boost, mutual follow | `BidirectionalFollowDwellWeightBoost` | **0** | `home-mixer/params/param.rs:322` |
-| report | `ReportWeight` | **-234** | `home-mixer/params/param.rs:474` |
-| mute author | `MuteAuthorWeight` | **-58.8** | `home-mixer/params/param.rs:468` |
-| not interested | `NotInterestedWeight` | **-43.2** | `home-mixer/params/param.rs:456` |
-| block author | `BlockAuthorWeight` | **-31.2** | `home-mixer/params/param.rs:462` |
-| not dwelled | `NotDwelledWeight` | **-0.02** | `home-mixer/params/param.rs:475` |
+| share via copy link | `ShareViaCopyLinkWeight` | **20** | `home-mixer/params/param.rs:363` |
+| reply | `ReplyWeight` | **5** | `home-mixer/params/param.rs:321` |
+| quote | `QuoteWeight` | **5** | `home-mixer/params/param.rs:370` |
+| share via DM | `ShareViaDmWeight` | **5** | `home-mixer/params/param.rs:357` |
+| follow author | `FollowAuthorWeight` | **4** | `home-mixer/params/param.rs:383` |
+| share | `ShareWeight` | **2** | `home-mixer/params/param.rs:356` |
+| repost | `RetweetWeight` | **1** | `home-mixer/params/param.rs:334` |
+| like | `FavoriteWeight` | **0.5** | `home-mixer/params/param.rs:320` |
+| click (open post) | `ClickWeight` | **0.4** | `home-mixer/params/param.rs:347` |
+| open link | `OpenLinkWeight` | **0.2** | `home-mixer/params/param.rs:348` |
+| video quality view (>10 s, viewer <10k followers) | `VqvWeight` | **0** | `home-mixer/params/param.rs:355` |
+| photo expand | `PhotoExpandWeight` | **0.05** | `home-mixer/params/param.rs:335` |
+| video open | `VideoOpenWeight` | **0.07** | `home-mixer/params/param.rs:341` |
+| quoted click | `QuotedClickWeight` | **0.05** | `home-mixer/params/param.rs:371` |
+| quoted video quality view | `QuotedVqvWeight` | **0** | `home-mixer/params/param.rs:377` |
+| profile click | `ProfileClickWeight` | **0** | `home-mixer/params/param.rs:349` |
+| dwell (binary) | `DwellWeight` | **0.05** | `home-mixer/params/param.rs:369` |
+| dwell time (per predicted second) | `ContDwellTimeWeight` | **0.004** | `home-mixer/params/param.rs:413` |
+| click dwell time (per second) | `ContClickDwellTimeWeight` | **0** | `home-mixer/params/param.rs:419` |
+| active secs residual | `ContActiveSecs5mResidualNormWeight` | **0** | `home-mixer/params/param.rs:455` |
+| post unexplored (in-network only) | `PostUnexploredWeight` | **0.02** | `home-mixer/params/param.rs:389` |
+| reply boost when author and viewer follow each other (originals only) | `BidirectionalFollowReplyWeightBoost` | **15** | `home-mixer/params/param.rs:322` |
+| dwell boost, mutual follow | `BidirectionalFollowDwellWeightBoost` | **0** | `home-mixer/params/param.rs:328` |
+| report | `ReportWeight` | **-234** | `home-mixer/params/param.rs:480` |
+| mute author | `MuteAuthorWeight` | **-58.8** | `home-mixer/params/param.rs:474` |
+| not interested | `NotInterestedWeight` | **-43.2** | `home-mixer/params/param.rs:462` |
+| block author | `BlockAuthorWeight` | **-31.2** | `home-mixer/params/param.rs:468` |
+| not dwelled | `NotDwelledWeight` | **-0.02** | `home-mixer/params/param.rs:481` |
 
 **After the sum:** out-of-network ×`0.75` (also applied to replies/reposts from followed accounts: `True`); author diversity decay `0.5`, floor `0.25` (2nd post ×0.625); cold-start lift for authors ≤ `1000` followers with < `1000` views and < `24`h age, to slot `15`; DPP reranker theta `0.65` over top `150`; posts older than 48h never enter.
 <!-- weights:end -->
