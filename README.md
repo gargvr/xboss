@@ -62,7 +62,7 @@ cold-start window (≤1000 followers) yes      Under the Hood available     not 
 ## The weights (auto-synced)
 
 <!-- weights:start -->
-_Mirrored from upstream commit `fad2f71` (2026-09-16); `param.rs` header says last production sync **2026-09-15T16:25:02Z**; extracted 2026-09-16. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
+_Mirrored from upstream commit `42266f3` (2026-09-17); `param.rs` header says last production sync **2026-09-16T16:23:12Z**; extracted 2026-09-17. Weights multiply the viewer's **predicted probability** of the action, not raw counts._
 
 | action | param | weight | where |
 |---|---|---|---|
@@ -85,17 +85,17 @@ _Mirrored from upstream commit `fad2f71` (2026-09-16); `param.rs` header says la
 | dwell (binary) | `DwellWeight` | **0.05** | `home-mixer/params/param.rs:369` |
 | dwell time (per predicted second) | `ContDwellTimeWeight` | **0.004** | `home-mixer/params/param.rs:413` |
 | click dwell time (per second) | `ContClickDwellTimeWeight` | **0** | `home-mixer/params/param.rs:419` |
-| active secs residual | `ContActiveSecs5mResidualNormWeight` | **0** | `home-mixer/params/param.rs:455` |
+| active secs residual | `ContActiveSecs5mResidualNormWeight` | **0** | `home-mixer/params/param.rs:431` |
 | post unexplored (in-network only) | `PostUnexploredWeight` | **0.02** | `home-mixer/params/param.rs:389` |
 | reply boost when author and viewer follow each other (originals only) | `BidirectionalFollowReplyWeightBoost` | **15** | `home-mixer/params/param.rs:322` |
 | dwell boost, mutual follow | `BidirectionalFollowDwellWeightBoost` | **0** | `home-mixer/params/param.rs:328` |
-| report | `ReportWeight` | **-234** | `home-mixer/params/param.rs:480` |
-| mute author | `MuteAuthorWeight` | **-58.8** | `home-mixer/params/param.rs:474` |
-| not interested | `NotInterestedWeight` | **-43.2** | `home-mixer/params/param.rs:462` |
-| block author | `BlockAuthorWeight` | **-31.2** | `home-mixer/params/param.rs:468` |
-| not dwelled | `NotDwelledWeight` | **-0.02** | `home-mixer/params/param.rs:481` |
+| report | `ReportWeight` | **-234** | `home-mixer/params/param.rs:456` |
+| mute author | `MuteAuthorWeight` | **-58.8** | `home-mixer/params/param.rs:450` |
+| not interested | `NotInterestedWeight` | **-43.2** | `home-mixer/params/param.rs:438` |
+| block author | `BlockAuthorWeight` | **-31.2** | `home-mixer/params/param.rs:444` |
+| not dwelled | `NotDwelledWeight` | **-0.02** | `home-mixer/params/param.rs:457` |
 
-**After the sum:** out-of-network ×`0.75` (also applied to replies/reposts from followed accounts: `True`); author diversity decay `0.5`, floor `0.25` (2nd post ×0.625); cold-start lift for authors ≤ `1000` followers with < `1000` views and < `24`h age, to slot `15`; DPP reranker theta `0.65` over top `150`; posts older than 48h never enter.
+**After the sum:** out-of-network ×`0.75` (also applied to replies/reposts from followed accounts: `True`); author diversity decay `0.5`, floor `0.25` (2nd post ×0.625); cold-start lift for authors ≤ `1000` followers with < `1000` views and < `48`h age, to slot `15`; DPP reranker theta `0.65` over top `150`; posts older than 48h never enter.
 <!-- weights:end -->
 
 Full parameter set: [`data/params.json`](data/params.json) (189 params), [`data/constants.json`](data/constants.json), [`data/retention_windows.json`](data/retention_windows.json). Every change lands in [`CHANGELOG.md`](CHANGELOG.md) and as an issue labelled `upstream-change`.
