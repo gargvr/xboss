@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "8b25829",
-    "commit_date": "2026-09-18",
+    "commit": "3aa0fa3",
+    "commit_date": "2026-09-22",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-09-18T16:21:20Z",
-    "extracted_at": "2026-09-19T11:02:50Z"
+    "param_rs_last_sync": "2026-09-21T16:23:47Z",
+    "extracted_at": "2026-09-22T11:41:59Z"
   },
   "note": "Each weight multiplies the viewer's PREDICTED PROBABILITY of that action (or a predicted continuous value such as dwell seconds); weights do not multiply raw engagement counts. See knowledge/01-scoring.md.",
   "groups": {
@@ -12,247 +12,247 @@
       "ShareViaCopyLinkWeight": {
         "value": 20.0,
         "key": "rust_home_mixer_share_via_copy_link_weight",
-        "ref": "home-mixer/params/param.rs:369"
+        "ref": "home-mixer/params/param.rs:393"
       },
       "ReplyWeight": {
         "value": 5.0,
         "key": "rust_home_mixer_reply_weight",
-        "ref": "home-mixer/params/param.rs:327"
+        "ref": "home-mixer/params/param.rs:351"
       },
       "QuoteWeight": {
         "value": 5.0,
         "key": "rust_home_mixer_quote_weight",
-        "ref": "home-mixer/params/param.rs:376"
+        "ref": "home-mixer/params/param.rs:400"
       },
       "ShareViaDmWeight": {
         "value": 5.0,
         "key": "rust_home_mixer_share_via_dm_weight",
-        "ref": "home-mixer/params/param.rs:363"
+        "ref": "home-mixer/params/param.rs:387"
       },
       "FollowAuthorWeight": {
         "value": 4.0,
         "key": "rust_home_mixer_follow_author_weight",
-        "ref": "home-mixer/params/param.rs:389"
+        "ref": "home-mixer/params/param.rs:413"
       },
       "ShareWeight": {
         "value": 2.0,
         "key": "rust_home_mixer_share_weight",
-        "ref": "home-mixer/params/param.rs:362"
+        "ref": "home-mixer/params/param.rs:386"
       },
       "RetweetWeight": {
         "value": 1.0,
         "key": "rust_home_mixer_retweet_weight",
-        "ref": "home-mixer/params/param.rs:340"
+        "ref": "home-mixer/params/param.rs:364"
       },
       "FavoriteWeight": {
         "value": 0.5,
         "key": "rust_home_mixer_favorite_weight",
-        "ref": "home-mixer/params/param.rs:326"
+        "ref": "home-mixer/params/param.rs:350"
       },
       "ClickWeight": {
         "value": 0.4,
         "key": "rust_home_mixer_click_weight",
-        "ref": "home-mixer/params/param.rs:353"
+        "ref": "home-mixer/params/param.rs:377"
       },
       "OpenLinkWeight": {
         "value": 0.2,
         "key": "rust_home_mixer_open_link_weight",
-        "ref": "home-mixer/params/param.rs:354"
+        "ref": "home-mixer/params/param.rs:378"
       },
       "VqvWeight": {
         "value": 0.0,
         "key": "rust_home_mixer_vqv_weight",
-        "ref": "home-mixer/params/param.rs:361"
+        "ref": "home-mixer/params/param.rs:385"
       },
       "PhotoExpandWeight": {
         "value": 0.05,
         "key": "rust_home_mixer_photo_expand_weight",
-        "ref": "home-mixer/params/param.rs:341"
+        "ref": "home-mixer/params/param.rs:365"
       },
       "VideoOpenWeight": {
         "value": 0.07,
         "key": "rust_home_mixer_video_open_weight",
-        "ref": "home-mixer/params/param.rs:347"
+        "ref": "home-mixer/params/param.rs:371"
       },
       "QuotedClickWeight": {
         "value": 0.05,
         "key": "rust_home_mixer_quoted_click_weight",
-        "ref": "home-mixer/params/param.rs:377"
+        "ref": "home-mixer/params/param.rs:401"
       },
       "QuotedVqvWeight": {
         "value": 0.0,
         "key": "rust_home_mixer_quoted_vqv_weight",
-        "ref": "home-mixer/params/param.rs:383"
+        "ref": "home-mixer/params/param.rs:407"
       },
       "ProfileClickWeight": {
         "value": 0.0,
         "key": "rust_home_mixer_profile_click_weight",
-        "ref": "home-mixer/params/param.rs:355"
+        "ref": "home-mixer/params/param.rs:379"
       },
       "DwellWeight": {
         "value": 0.05,
         "key": "rust_home_mixer_dwell_weight",
-        "ref": "home-mixer/params/param.rs:375"
+        "ref": "home-mixer/params/param.rs:399"
       },
       "ContDwellTimeWeight": {
         "value": 0.004,
         "key": "rust_home_mixer_cont_dwell_time_weight",
-        "ref": "home-mixer/params/param.rs:419"
+        "ref": "home-mixer/params/param.rs:443"
       },
       "ContClickDwellTimeWeight": {
         "value": 0.0,
         "key": "rust_home_mixer_cont_click_dwell_time_weight",
-        "ref": "home-mixer/params/param.rs:425"
+        "ref": "home-mixer/params/param.rs:449"
       },
       "ContActiveSecs5mResidualNormWeight": {
         "value": 0.0,
         "key": "rust_home_mixer_cont_active_secs_5m_residual_norm_weight",
-        "ref": "home-mixer/params/param.rs:437"
+        "ref": "home-mixer/params/param.rs:461"
       },
       "PostUnexploredWeight": {
         "value": 0.02,
         "key": "rust_home_mixer_post_unexplored_weight",
-        "ref": "home-mixer/params/param.rs:395"
+        "ref": "home-mixer/params/param.rs:419"
       }
     },
     "boosts": {
       "BidirectionalFollowReplyWeightBoost": {
         "value": 15.0,
         "key": "rust_home_mixer_bidirectional_follow_reply_weight_boost",
-        "ref": "home-mixer/params/param.rs:328"
+        "ref": "home-mixer/params/param.rs:352"
       },
       "BidirectionalFollowDwellWeightBoost": {
         "value": 0.0,
         "key": "rust_home_mixer_bidirectional_follow_dwell_weight_boost",
-        "ref": "home-mixer/params/param.rs:334"
+        "ref": "home-mixer/params/param.rs:358"
       }
     },
     "negative": {
       "ReportWeight": {
         "value": -234.0,
         "key": "rust_home_mixer_report_weight",
-        "ref": "home-mixer/params/param.rs:462"
+        "ref": "home-mixer/params/param.rs:486"
       },
       "MuteAuthorWeight": {
         "value": -58.8,
         "key": "rust_home_mixer_mute_author_weight",
-        "ref": "home-mixer/params/param.rs:456"
+        "ref": "home-mixer/params/param.rs:480"
       },
       "NotInterestedWeight": {
         "value": -43.2,
         "key": "rust_home_mixer_not_interested_weight",
-        "ref": "home-mixer/params/param.rs:444"
+        "ref": "home-mixer/params/param.rs:468"
       },
       "BlockAuthorWeight": {
         "value": -31.2,
         "key": "rust_home_mixer_block_author_weight",
-        "ref": "home-mixer/params/param.rs:450"
+        "ref": "home-mixer/params/param.rs:474"
       },
       "NotDwelledWeight": {
         "value": -0.02,
         "key": "rust_home_mixer_not_dwelled_weight",
-        "ref": "home-mixer/params/param.rs:463"
+        "ref": "home-mixer/params/param.rs:487"
       }
     },
     "adjustments": {
       "OonWeightFactor": {
         "value": 0.75,
         "key": "rust_home_mixer_oon_weight_factor",
-        "ref": "home-mixer/params/param.rs:265"
+        "ref": "home-mixer/params/param.rs:283"
       },
       "TopicOonWeightFactor": {
         "value": 0.5,
         "key": "rust_home_mixer_topic_oon_weight_factor",
-        "ref": "home-mixer/params/param.rs:284"
+        "ref": "home-mixer/params/param.rs:302"
       },
       "EnableOonRescoreForInNetworkRepliesRetweets": {
         "value": true,
         "key": "rust_home_mixer_enable_oon_rescore_for_in_network_replies_retweets",
-        "ref": "home-mixer/params/param.rs:278"
+        "ref": "home-mixer/params/param.rs:296"
       },
       "AuthorDiversityDecay": {
         "value": 0.5,
         "key": "rust_home_mixer_author_diversity_decay",
-        "ref": "home-mixer/params/param.rs:246"
+        "ref": "home-mixer/params/param.rs:264"
       },
       "AuthorDiversityFloor": {
         "value": 0.25,
         "key": "rust_home_mixer_author_diversity_floor",
-        "ref": "home-mixer/params/param.rs:252"
+        "ref": "home-mixer/params/param.rs:270"
       },
       "EnableAuthorDiversity": {
         "value": true,
         "key": "rust_home_mixer_enable_author_diversity",
-        "ref": "home-mixer/params/param.rs:240"
+        "ref": "home-mixer/params/param.rs:258"
       },
       "MinVideoDurationMs": {
         "value": 10000,
         "key": "rust_home_mixer_min_video_duration_ms",
-        "ref": "home-mixer/params/param.rs:631"
+        "ref": "home-mixer/params/param.rs:667"
       },
       "PostUnexploredWeightInNetworkOnly": {
         "value": true,
         "key": "rust_home_mixer_post_unexplored_weight_in_network_only",
-        "ref": "home-mixer/params/param.rs:413"
+        "ref": "home-mixer/params/param.rs:437"
       }
     },
     "cold_start": {
       "EnableViewerColdStart": {
         "value": true,
         "key": "rust_home_mixer_enable_viewer_cold_start_boost",
-        "ref": "home-mixer/params/param.rs:576"
+        "ref": "home-mixer/params/param.rs:612"
       },
       "ColdStartFollowerCap": {
         "value": 1000,
         "key": "rust_home_mixer_cold_start_follower_cap",
-        "ref": "home-mixer/params/param.rs:556"
+        "ref": "home-mixer/params/param.rs:592"
       },
       "ColdStartImpressionThreshold": {
         "value": 1000,
         "key": "rust_home_mixer_cold_start_impression_threshold",
-        "ref": "home-mixer/params/param.rs:538"
+        "ref": "home-mixer/params/param.rs:574"
       },
       "ColdStartSlotMin": {
         "value": 15,
         "key": "rust_home_mixer_cold_start_slot_min",
-        "ref": "home-mixer/params/param.rs:544"
+        "ref": "home-mixer/params/param.rs:580"
       },
       "ColdStartSlotMax": {
         "value": 16,
         "key": "rust_home_mixer_cold_start_slot_max",
-        "ref": "home-mixer/params/param.rs:550"
+        "ref": "home-mixer/params/param.rs:586"
       },
       "ColdStartMaxPostAgeSecs": {
         "value": 172800,
         "key": "rust_home_mixer_cold_start_max_post_age_secs",
-        "ref": "home-mixer/params/param.rs:562"
+        "ref": "home-mixer/params/param.rs:598"
       },
       "LowImpressionsMaxPositionRatio": {
         "value": 0.85,
         "key": "rust_home_mixer_low_impressions_max_boost_position_ratio",
-        "ref": "home-mixer/params/param.rs:569"
+        "ref": "home-mixer/params/param.rs:605"
       },
       "EnableColdStartThompsonSampling": {
         "value": false,
         "key": "rust_home_mixer_enable_cold_start_thompson_sampling",
-        "ref": "home-mixer/params/param.rs:582"
+        "ref": "home-mixer/params/param.rs:618"
       }
     },
     "reranker": {
       "EnableVMRanker": {
         "value": true,
         "key": "rust_home_mixer_enable_vm_ranker",
-        "ref": "home-mixer/params/param.rs:502"
+        "ref": "home-mixer/params/param.rs:526"
       },
       "VMRankerDppTheta": {
         "value": 0.65,
         "key": "rust_home_mixer_vm_ranker_dpp_theta",
-        "ref": "home-mixer/params/param.rs:526"
+        "ref": "home-mixer/params/param.rs:550"
       },
       "VMRankerDppMaxSelectedRank": {
         "value": 150,
         "key": "rust_home_mixer_vm_ranker_dpp_max_selected_rank",
-        "ref": "home-mixer/params/param.rs:532"
+        "ref": "home-mixer/params/param.rs:556"
       }
     },
     "sources": {
@@ -279,34 +279,34 @@
       "MaxSeqLengthScoring": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_scoring",
-        "ref": "home-mixer/params/param.rs:850"
+        "ref": "home-mixer/params/param.rs:892"
       },
       "MaxSeqLengthRetrieval": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_retrieval",
-        "ref": "home-mixer/params/param.rs:856"
+        "ref": "home-mixer/params/param.rs:898"
       },
       "EngagementSignalsMaxPerType": {
         "value": 15,
         "key": "rust_home_mixer_engagement_signals_max_per_type",
-        "ref": "home-mixer/params/param.rs:671"
+        "ref": "home-mixer/params/param.rs:707"
       }
     },
     "served_seen": {
       "ExcludeServedTweetIdsDuration": {
         "value": 10,
         "key": "rust_home_mixer_exclude_served_tweet_ids_duration_minutes",
-        "ref": "home-mixer/params/param.rs:984"
+        "ref": "home-mixer/params/param.rs:1026"
       },
       "ExcludeServedTweetIdsNumber": {
         "value": 100,
         "key": "rust_home_mixer_exclude_served_tweet_ids_number",
-        "ref": "home-mixer/params/param.rs:990"
+        "ref": "home-mixer/params/param.rs:1032"
       },
       "EnableServedFilterAllRequests": {
         "value": true,
         "key": "rust_home_mixer_enable_served_filter_all_requests",
-        "ref": "home-mixer/params/param.rs:869"
+        "ref": "home-mixer/params/param.rs:911"
       }
     }
   }

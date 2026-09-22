@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "8b25829",
-    "commit_date": "2026-09-18",
+    "commit": "3aa0fa3",
+    "commit_date": "2026-09-22",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-09-18T16:21:20Z",
-    "extracted_at": "2026-09-19T11:02:50Z"
+    "param_rs_last_sync": "2026-09-21T16:23:47Z",
+    "extracted_at": "2026-09-22T11:41:59Z"
   },
   "windows": [
     {
@@ -13,7 +13,7 @@
       "retention_hours": 24,
       "window_name": "post_creation_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 142
+      "line": 141
     },
     {
       "index": "Main",
@@ -21,7 +21,7 @@
       "retention_hours": 24,
       "window_name": "1fav_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 143
+      "line": 142
     },
     {
       "index": "Main",
@@ -29,7 +29,7 @@
       "retention_hours": 48,
       "window_name": "1fav_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 144
+      "line": 143
     },
     {
       "index": "Main",
@@ -37,7 +37,7 @@
       "retention_hours": 48,
       "window_name": "1fav_video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 145
+      "line": 144
     },
     {
       "index": "Main",
@@ -45,7 +45,7 @@
       "retention_hours": 24,
       "window_name": "32fav_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 149
+      "line": 148
     },
     {
       "index": "Main",
@@ -53,7 +53,7 @@
       "retention_hours": 48,
       "window_name": "video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 150
+      "line": 149
     },
     {
       "index": "Main",
@@ -61,7 +61,7 @@
       "retention_hours": 96,
       "window_name": "video_4day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 151
+      "line": 150
     },
     {
       "index": "Main",
@@ -69,7 +69,7 @@
       "retention_hours": 168,
       "window_name": "video_7day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 152
+      "line": 151
     },
     {
       "index": "Main",
@@ -77,7 +77,7 @@
       "retention_hours": 336,
       "window_name": "video_14day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 153
+      "line": 152
     },
     {
       "index": "Main",
@@ -85,7 +85,7 @@
       "retention_hours": 720,
       "window_name": "video_30day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 154
+      "line": 153
     },
     {
       "index": "Main",
@@ -93,7 +93,7 @@
       "retention_hours": 48,
       "window_name": "nsfw_video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 155
+      "line": 154
     },
     {
       "index": "Main",
@@ -101,7 +101,7 @@
       "retention_hours": 168,
       "window_name": "nsfw_video_7day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 156
+      "line": 155
     },
     {
       "index": "Main",
@@ -109,7 +109,7 @@
       "retention_hours": 43800,
       "window_name": "evergreen_video_1825day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 157
+      "line": 156
     },
     {
       "index": "Main",
@@ -117,7 +117,7 @@
       "retention_hours": 43800,
       "window_name": "evergreen_nsfw_video_1825day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 158
+      "line": 157
     },
     {
       "index": "Topic",
@@ -125,7 +125,7 @@
       "retention_hours": 24,
       "window_name": "1fav_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 161
+      "line": 160
     },
     {
       "index": "Topic",
@@ -133,7 +133,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 162
+      "line": 161
     },
     {
       "index": "Topic",
@@ -141,7 +141,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_option_1_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 163
+      "line": 162
     },
     {
       "index": "Topic",
@@ -149,7 +149,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_option_2_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 164
+      "line": 163
     },
     {
       "index": "Topic",
@@ -157,7 +157,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_option_3_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 165
+      "line": 164
     },
     {
       "index": "Topic",
@@ -165,7 +165,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_option_4_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 166
+      "line": 165
     },
     {
       "index": "Topic",
@@ -173,7 +173,7 @@
       "retention_hours": 24,
       "window_name": "1fav_topic_option_5_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 167
+      "line": 166
     },
     {
       "index": "Metadata",
@@ -181,7 +181,7 @@
       "retention_hours": 24,
       "window_name": "metadata_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 170
+      "line": 169
     },
     {
       "index": "Metadata",
@@ -189,7 +189,7 @@
       "retention_hours": 48,
       "window_name": "metadata_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 171
+      "line": 170
     },
     {
       "index": "Metadata",
@@ -197,31 +197,7 @@
       "retention_hours": 72,
       "window_name": "metadata_3day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 172
-    },
-    {
-      "index": "MmMetadata",
-      "name": "mm_emb_metadata",
-      "retention_hours": 24,
-      "window_name": "mm_emb_metadata_1day",
-      "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 175
-    },
-    {
-      "index": "MmMetadata",
-      "name": "mm_emb_metadata_video",
-      "retention_hours": 48,
-      "window_name": "mm_emb_metadata_video_2day",
-      "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 176
-    },
-    {
-      "index": "MmMetadata",
-      "name": "mm_emb_metadata_video",
-      "retention_hours": 96,
-      "window_name": "mm_emb_metadata_video_4day",
-      "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 177
+      "line": 171
     },
     {
       "index": "Sid",
@@ -229,7 +205,7 @@
       "retention_hours": 24,
       "window_name": "1fav_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 180
+      "line": 174
     },
     {
       "index": "Sid",
@@ -237,7 +213,7 @@
       "retention_hours": 48,
       "window_name": "1fav_video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 181
+      "line": 175
     },
     {
       "index": "Sid",
@@ -245,7 +221,7 @@
       "retention_hours": 48,
       "window_name": "video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 185
+      "line": 179
     },
     {
       "index": "Sid",
@@ -253,7 +229,7 @@
       "retention_hours": 96,
       "window_name": "video_4day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 186
+      "line": 180
     },
     {
       "index": "Sid",
@@ -261,7 +237,7 @@
       "retention_hours": 336,
       "window_name": "video_14day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 187
+      "line": 181
     },
     {
       "index": "Sid",
@@ -269,7 +245,7 @@
       "retention_hours": 48,
       "window_name": "nsfw_video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 188
+      "line": 182
     },
     {
       "index": "Sid",
@@ -277,7 +253,7 @@
       "retention_hours": 168,
       "window_name": "nsfw_video_7day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 189
+      "line": 183
     },
     {
       "index": "Sid",
@@ -285,7 +261,7 @@
       "retention_hours": 336,
       "window_name": "nsfw_video_14day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 190
+      "line": 184
     },
     {
       "index": "Sid",
@@ -293,7 +269,7 @@
       "retention_hours": 43800,
       "window_name": "evergreen_video_1825day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 191
+      "line": 185
     },
     {
       "index": "Sid",
@@ -301,7 +277,7 @@
       "retention_hours": 96,
       "window_name": "imagine_4day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 192
+      "line": 186
     },
     {
       "index": "SidTail",
@@ -309,7 +285,7 @@
       "retention_hours": 24,
       "window_name": "tail_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 196
+      "line": 190
     },
     {
       "index": "Ads",
@@ -317,7 +293,7 @@
       "retention_hours": 24,
       "window_name": "1fav_1day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 257
+      "line": 250
     },
     {
       "index": "Ads",
@@ -325,7 +301,7 @@
       "retention_hours": 48,
       "window_name": "video_2day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 258
+      "line": 251
     },
     {
       "index": "Ads",
@@ -333,7 +309,7 @@
       "retention_hours": 168,
       "window_name": "video_7day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 259
+      "line": 252
     },
     {
       "index": "Ads",
@@ -341,7 +317,7 @@
       "retention_hours": 43800,
       "window_name": "evergreen_video_1825day",
       "file": "phoenix-rankall/src/config/mod.rs",
-      "line": 261
+      "line": 254
     }
   ]
 }

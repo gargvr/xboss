@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "8b25829",
-    "commit_date": "2026-09-18",
+    "commit": "3aa0fa3",
+    "commit_date": "2026-09-22",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-09-18T16:21:20Z",
-    "extracted_at": "2026-09-19T11:02:50Z"
+    "param_rs_last_sync": "2026-09-21T16:23:47Z",
+    "extracted_at": "2026-09-22T11:41:59Z"
   },
   "constants": {
     "home-mixer/params/config.rs": {
@@ -155,26 +155,19 @@
         "file": "home-mixer/params/config.rs",
         "line": 36
       },
-      "NEW_USER_OON_WEIGHT_FACTOR": {
-        "type": "f64",
-        "value": 1e-05,
-        "raw": "0.00001",
-        "file": "home-mixer/params/config.rs",
-        "line": 38
-      },
       "NEW_USER_MIN_FOLLOWING": {
         "type": "usize",
         "value": 5,
         "raw": "5",
         "file": "home-mixer/params/config.rs",
-        "line": 39
+        "line": 38
       },
       "NEGATIVE_SCORES_OFFSET": {
         "type": "f64",
         "value": 0.001,
         "raw": "0.001",
         "file": "home-mixer/params/config.rs",
-        "line": 40
+        "line": 39
       }
     },
     "home-mixer/util/candidates_util.rs": {
@@ -250,33 +243,26 @@
         "file": "home-mixer/sources/simclusters_source.rs",
         "line": 32
       },
-      "ANN_MAX_POST_CANDIDATE_AGE_HOURS": {
-        "type": "i32",
-        "value": 48,
-        "raw": "48",
-        "file": "home-mixer/sources/simclusters_source.rs",
-        "line": 33
-      },
       "ANN_MIN_POST_CANDIDATE_AGE_HOURS": {
         "type": "i32",
         "value": 0,
         "raw": "0",
         "file": "home-mixer/sources/simclusters_source.rs",
-        "line": 34
+        "line": 33
       },
       "POST_ANN_MIN_SCORE": {
         "type": "f64",
         "value": 0.5,
         "raw": "0.5",
         "file": "home-mixer/sources/simclusters_source.rs",
-        "line": 35
+        "line": 34
       },
       "CACHE_METRIC": {
         "type": "&str",
         "value": "SimclustersSource.cache",
         "raw": "\"SimclustersSource.cache\"",
         "file": "home-mixer/sources/simclusters_source.rs",
-        "line": 36
+        "line": 35
       }
     },
     "home-mixer/scorers/ranking_scorer.rs": {
