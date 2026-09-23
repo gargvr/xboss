@@ -1,10 +1,10 @@
 {
   "meta": {
-    "commit": "3aa0fa3",
-    "commit_date": "2026-09-22",
+    "commit": "1b3fec2",
+    "commit_date": "2026-09-23",
     "upstream": "https://github.com/xai-org/x-algorithm",
-    "param_rs_last_sync": "2026-09-21T16:23:47Z",
-    "extracted_at": "2026-09-22T11:41:59Z"
+    "param_rs_last_sync": "2026-09-22T17:39:32Z",
+    "extracted_at": "2026-09-23T11:40:53Z"
   },
   "note": "Each weight multiplies the viewer's PREDICTED PROBABILITY of that action (or a predicted continuous value such as dwell seconds); weights do not multiply raw engagement counts. See knowledge/01-scoring.md.",
   "groups": {
@@ -188,7 +188,7 @@
       "MinVideoDurationMs": {
         "value": 10000,
         "key": "rust_home_mixer_min_video_duration_ms",
-        "ref": "home-mixer/params/param.rs:667"
+        "ref": "home-mixer/params/param.rs:679"
       },
       "PostUnexploredWeightInNetworkOnly": {
         "value": true,
@@ -200,42 +200,42 @@
       "EnableViewerColdStart": {
         "value": true,
         "key": "rust_home_mixer_enable_viewer_cold_start_boost",
-        "ref": "home-mixer/params/param.rs:612"
+        "ref": "home-mixer/params/param.rs:624"
       },
       "ColdStartFollowerCap": {
         "value": 1000,
         "key": "rust_home_mixer_cold_start_follower_cap",
-        "ref": "home-mixer/params/param.rs:592"
+        "ref": "home-mixer/params/param.rs:604"
       },
       "ColdStartImpressionThreshold": {
         "value": 1000,
         "key": "rust_home_mixer_cold_start_impression_threshold",
-        "ref": "home-mixer/params/param.rs:574"
+        "ref": "home-mixer/params/param.rs:586"
       },
       "ColdStartSlotMin": {
         "value": 15,
         "key": "rust_home_mixer_cold_start_slot_min",
-        "ref": "home-mixer/params/param.rs:580"
+        "ref": "home-mixer/params/param.rs:592"
       },
       "ColdStartSlotMax": {
         "value": 16,
         "key": "rust_home_mixer_cold_start_slot_max",
-        "ref": "home-mixer/params/param.rs:586"
+        "ref": "home-mixer/params/param.rs:598"
       },
       "ColdStartMaxPostAgeSecs": {
         "value": 172800,
         "key": "rust_home_mixer_cold_start_max_post_age_secs",
-        "ref": "home-mixer/params/param.rs:598"
+        "ref": "home-mixer/params/param.rs:610"
       },
       "LowImpressionsMaxPositionRatio": {
         "value": 0.85,
         "key": "rust_home_mixer_low_impressions_max_boost_position_ratio",
-        "ref": "home-mixer/params/param.rs:605"
+        "ref": "home-mixer/params/param.rs:617"
       },
       "EnableColdStartThompsonSampling": {
         "value": false,
         "key": "rust_home_mixer_enable_cold_start_thompson_sampling",
-        "ref": "home-mixer/params/param.rs:618"
+        "ref": "home-mixer/params/param.rs:630"
       }
     },
     "reranker": {
@@ -279,34 +279,34 @@
       "MaxSeqLengthScoring": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_scoring",
-        "ref": "home-mixer/params/param.rs:892"
+        "ref": "home-mixer/params/param.rs:904"
       },
       "MaxSeqLengthRetrieval": {
         "value": 1024,
         "key": "rust_home_mixer_max_seq_length_retrieval",
-        "ref": "home-mixer/params/param.rs:898"
+        "ref": "home-mixer/params/param.rs:910"
       },
       "EngagementSignalsMaxPerType": {
         "value": 15,
         "key": "rust_home_mixer_engagement_signals_max_per_type",
-        "ref": "home-mixer/params/param.rs:707"
+        "ref": "home-mixer/params/param.rs:719"
       }
     },
     "served_seen": {
       "ExcludeServedTweetIdsDuration": {
         "value": 10,
         "key": "rust_home_mixer_exclude_served_tweet_ids_duration_minutes",
-        "ref": "home-mixer/params/param.rs:1026"
+        "ref": "home-mixer/params/param.rs:1038"
       },
       "ExcludeServedTweetIdsNumber": {
         "value": 100,
         "key": "rust_home_mixer_exclude_served_tweet_ids_number",
-        "ref": "home-mixer/params/param.rs:1032"
+        "ref": "home-mixer/params/param.rs:1044"
       },
       "EnableServedFilterAllRequests": {
         "value": true,
         "key": "rust_home_mixer_enable_served_filter_all_requests",
-        "ref": "home-mixer/params/param.rs:911"
+        "ref": "home-mixer/params/param.rs:923"
       }
     }
   }

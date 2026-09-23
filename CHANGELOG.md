@@ -2,6 +2,14 @@
 
 Every change to X's mirrored production parameters (home-mixer/params/param.rs and friends), as detected by scripts/sync.py. Newest first.
 
+## 2026-09-23 · upstream 1b3fec2 (2026-09-23) · param.rs sync 2026-09-22T17:39:32Z
+
+- **param added** `CachedPostsReuseWeightedScore` = `False`
+- **param** `PhoenixMOEMaxResults`: `200` → `0`
+- **param** `PhoenixMoeColdStartMaxResults`: `0` → `200`
+- **param** `PhoenixRetrievalMOEInferenceClusterId`: `'Experiment3Memy04'` → `'Experiment2Memy04'`
+- **param added** `VMRankerSendDebiasInputs` = `False`
+
 ## 2026-09-22 · upstream 3aa0fa3 (2026-09-22) · param.rs sync 2026-09-21T16:23:47Z
 
 - **param added** `NewUserOonWeightFactor` = `1e-05`
